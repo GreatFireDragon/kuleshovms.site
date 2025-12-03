@@ -1,0 +1,101 @@
+/* 
+ * About me section
+ */
+
+/* Section styling */
+#about-me {
+ 
+}
+
+/* Layout grid */
+#about-me-grid {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 30px;
+  align-items: stretch;
+}
+
+
+/* Image styling */
+#about-me-grid > img {
+  width: 100%;
+  aspect-ratio: 9 / 20;
+  object-fit: cover;
+  display: block;
+  border-radius: 4px;
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Hover effect (Instant snap, exactly like original) */
+#about-me-grid img:hover {
+  transform: scale(1.2) rotate(4deg);
+}
+
+/* Text styling */
+/* Target the first paragraph inside the second column */
+#about-me-grid > div:last-child > p:first-child {
+  margin-top: 0;
+}
+
+/* Abbreviation styling inside the grid */
+#about-me-grid abbr {
+  cursor: help;
+  border-bottom: 1px dotted;
+}
+
+#about-me-grid div:last-child {
+  max-height: 365px; 
+  overflow: hidden; 
+}
+
+/* Welcomve to the site buttons */
+.welcome-to-the-site-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.welcome-to-the-site-buttons img {
+  width: 88px;
+  height: 31px;
+}
+
+/* Welcome section */
+#welcome-section {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: stretch;
+}
+
+#leyley_logo {
+  transition: transform 0.1s ease-in-out;
+}
+
+#leyley_logo:hover {
+  animation: vibrate 0.1s infinite alternate;
+  cursor: pointer;
+}
+
+@keyframes vibrate {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+#leyley_logo:active {
+  transform: rotate(5deg);
+  animation: jump 0.5s ease-in-out;
+}
+
+@keyframes jump {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-50px);
+  }
+}
