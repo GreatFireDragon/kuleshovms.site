@@ -17,8 +17,7 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
-        script_stop: true
-        # command_timeout: 200m # Uncomment if your deploy takes a long time
         script: |
           cd /var/www/html/greatfiredragon.site
-          git pull origin main
+          git fetch --all
+          git reset --hard origin/main
