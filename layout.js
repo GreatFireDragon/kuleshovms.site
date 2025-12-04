@@ -50,7 +50,9 @@ function headerHTML() {
       return response.text();
     })
     .then(htmlContent => {
-      document.querySelector('div.layout').insertAdjacentHTML('afterbegin', htmlContent);
+      const randomPhotoId = Math.floor(Math.random() * 200) + 1;
+      const modifiedHtmlContent = htmlContent.replace(/{{photo-id}}/g, randomPhotoId);
+      document.querySelector('div.layout').insertAdjacentHTML('afterbegin', modifiedHtmlContent);
     })
     .catch(error => {
       console.error('Error loading the sidebar:', error);
@@ -119,5 +121,10 @@ function getNesting() {
   if (numberOfSlashes == 1) return "./";
   return "../".repeat(numberOfSlashes - 1);
 }
+
+
+
+
+
 
 

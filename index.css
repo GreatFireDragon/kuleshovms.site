@@ -43,9 +43,10 @@
   border-bottom: 1px dotted;
 }
 
+
 #about-me-grid div:last-child {
   max-height: 365px; 
-  overflow: hidden; 
+  overflow-y: auto;
 }
 
 /* Welcomve to the site buttons */
