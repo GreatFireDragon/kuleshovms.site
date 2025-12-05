@@ -215,9 +215,11 @@ aside {
   padding: var(--padding);
   color: var(--sidebar-text-color);
 
-  /* position: sticky;
-  top: 10vh;
-  height: max-content; */
+  position: sticky;
+  top: 11vh;
+  height: max-content;
+
+  
 }
 
 .left-sidebar {

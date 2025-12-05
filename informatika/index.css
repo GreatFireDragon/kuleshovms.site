@@ -13,8 +13,8 @@ p.seo-text {
 #contact-form {
     width: 100%;
     height: auto;
-    aspect-ratio: 185/113;
-    zoom: 0.8;
+    aspect-ratio: 160/47;
+    /* zoom: 0.9; */
 }
 
 /* CSS Code for devices < 800px */
