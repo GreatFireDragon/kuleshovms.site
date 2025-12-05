@@ -1,5 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Sofia+Sans+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap');
 
-  
+/* -------------------------------------------------------- */
+/* GLOBAL STYLES */
+/* -------------------------------------------------------- */
+
+body {
+  font-family: "Anonymous Pro", monospace;
+}
+
+
 /* -------------------------------------------------------- */
 /* VARIABLES */
 /* -------------------------------------------------------- */
@@ -18,7 +27,7 @@
   --link-color-hover: #739854;
 
   /* Text: */
-  --font: Monaco, monospace;
+  --font: "Anonymous Pro", monospace;
   --heading-font: Verdana, sans-serif;
   --font-size: 14px;
 
@@ -205,6 +214,10 @@ aside {
   background: var(--sidebar-background-color);
   padding: var(--padding);
   color: var(--sidebar-text-color);
+
+  /* position: sticky;
+  top: 10vh;
+  height: max-content; */
 }
 
 .left-sidebar {

@@ -1,0 +1,25 @@
+
+section img {
+    max-width: 100%;
+    height: auto;
+}
+
+p.seo-text {
+    font-size: 0.01em;
+    margin: 0; 
+    padding: 0;
+}
+
+#contact-form {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 185/113;
+    zoom: 0.8;
+}
+
+/* CSS Code for devices < 800px */
+@media (max-width: 800px) {
+    #contact-form {
+        aspect-ratio: 185/144;
+    }
+}
