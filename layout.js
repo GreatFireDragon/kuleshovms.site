@@ -35,7 +35,6 @@ function loadLayoutByPetraPixel() {
 
   mainEl.insertAdjacentHTML("beforebegin", headerHTML());
 
-  
   mainEl.insertAdjacentHTML("afterbegin", sidebarHTML_normal());
   
   mainEl.insertAdjacentHTML("afterend", footerHTML());
@@ -53,7 +52,7 @@ function headerHTML() {
 
 <header>
   <div class="header-image">
-    <img src="/images/GFD Logo.png" alt="GreatFireDragon Logo" />
+    <img src="/images/GFD Logo.svg" alt="GreatFireDragon Logo" />
   </div>
   <div class="header-title">GreatFireDragon</div>
 </header>

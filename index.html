@@ -8,10 +8,12 @@
     <!-- Attributes -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
+    <!-- <link
       rel="icon"
       href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦊</text></svg>"
-    />
+    /> -->
+    <link rel="icon" href="/images/GFD Logo.svg" type="image/svg+xml" />
+
     <link href="/style.css" rel="stylesheet" />
     <script src="/layout.js"></script>
 
@@ -133,69 +135,14 @@
         </section>
 
         <section>
-          <h2>Новости из Телеграма</h2>
+          <h2>
+            Последние посты из
+            <a href="https://t.me/gfd_channel">моего телеграм канала</a>
+          </h2>
           <br />
           <div id="telegram-feed">Загрузка постов...</div>
 
-          <script>
-            async function loadTelegramPosts() {
-              const container = document.getElementById("telegram-feed");
-
-              // ПЕРЕД ПУШЕМ ПОМЕНЯТЬ НА БУЕОВУЮ ССЫЛКУ!
-              const url =
-                "/rss/?action=display&bridge=TelegramBridge&username=gfd_channel&format=Json";
-              // const url = "/test-rss-feed.json";
-
-              try {
-                const response = await fetch(url);
-                if (!response.ok) throw new Error("Ошибка сети");
-
-                const data = await response.json();
-
-                // Очищаем контейнер от надписи "Загрузка..."
-                container.innerHTML = "";
-
-                // Берем массив элементов (items)
-                // И обрезаем его до 5 штук с помощью .slice(0, 5)
-                const posts = data.items.slice(0, 5);
-
-                posts.forEach((item) => {
-                  // Создаем карточку поста
-                  const postDiv = document.createElement("div");
-                  postDiv.className = "post";
-
-                  // Форматируем дату (из ISO строки в читаемый вид)
-                  const date = new Date(item.date_published).toLocaleDateString(
-                    "ru-RU",
-                    {
-                      day: "numeric",
-                      month: "long",
-                      hour: "2-digit",
-                      minute: "2-digit",
-                    }
-                  );
-
-                  // Вставляем HTML
-                  // item.url - ссылка на пост
-                  // item.title - заголовок (в телеграме это часто начало текста)
-                  // item.content_html - сам текст поста с форматированием и картинками
-                  postDiv.innerHTML = `
-                        <div class="post-date">${date}</div>
-                        <a href="${item.url}" target="_blank" class="post-title">${item.title}</a>
-                        <div class="post-content">${item.content_html}</div>
-                    `;
-
-                  container.appendChild(postDiv);
-                });
-              } catch (error) {
-                console.error(error);
-                container.innerHTML = "<p>Не удалось загрузить новости :(</p>";
-              }
-            }
-
-            // Запускаем функцию после загрузки страницы
-            loadTelegramPosts();
-          </script>
+          <script src="/telegram-rss-feed.js"></script>
         </section>
       </main>
 

@@ -113,31 +113,69 @@
   gap: var(--padding)
 }
 
-.post-content > video {
+.post {
+  display: flex;
+  flex-direction: column;
+  gap: var(--margin);
   
+  border: 2px dotted #00000073;
+  border-radius: var(--round-borders);
+  padding: 15px;
+  background: #00000014;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  
+  overflow: hidden;
 }
 
-.post {
-    border: 2px dotted #00000073;
-    border-radius: 8px;
-    padding: 15px;
-    background: #00000014;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
 .post-date {
-    color: #888;
-    font-size: 0.85em;
+  color: #888;
+  font-size: 0.85em;
 }
+
 .post-title {
-    color: #333;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.2em;
-    display: block;
-    margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 1.2em;
+  white-space: nowrap;
 }
+
+a:has(div.watch-in-tg) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
 .post-content img {
-    max-width: 100%; /* Чтобы картинки из телеграма не вылезали */
-    height: auto;
-    border-radius: 4px;
+  max-width: 100%; /* Чтобы картинки из телеграма не вылезали */
+  height: auto;
+  border-radius: var(--round-borders);
+}
+
+.post-content video {
+  width: 100%;
+  height: auto;
+  border-radius: var(--round-borders);
+}
+
+
+.message_media_not_supported,
+.post-content > blockquote,
+.post-content > hr {
+  display: none;
+}
+
+button#tg-load-more-btn {
+  cursor: pointer;
+  display: block;
+  font-size: 2em;
+  
+  padding: var(--padding);
+  border-radius: var(--round-borders);
+  background-color: var(--background-color);
+  border: 2px solid var(--text-color);
+  color: var(--text-color);
+  margin: var(--margin) auto;
+  
 }
