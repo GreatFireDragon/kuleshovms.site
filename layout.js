@@ -32,7 +32,12 @@ document.addEventListener("DOMContentLoaded", function () {
 function loadLayoutByPetraPixel() {
   const mainEl = document.querySelector("main");
   if (!mainEl) return;
+
   mainEl.insertAdjacentHTML("beforebegin", headerHTML());
+
+  
+  mainEl.insertAdjacentHTML("afterbegin", sidebarHTML_normal());
+  
   mainEl.insertAdjacentHTML("afterend", footerHTML());
   giveActiveClassToCurrentPage();
 }
@@ -40,6 +45,22 @@ function loadLayoutByPetraPixel() {
 const nesting = getNesting();
 
 function headerHTML() {
+  
+    return `
+    <!-- =============================================== -->
+<!-- HEADER -->
+<!-- =============================================== -->
+
+<header>
+  <div class="header-image">
+    <img src="/images/GFD Logo.png" alt="GreatFireDragon Logo" />
+  </div>
+  <div class="header-title">GreatFireDragon</div>
+</header>
+    `;
+}
+
+function sidebarHTML_normal() {
   let fileUrl = nesting + '/Layout/sidebar.html';
 
   fetch(fileUrl)
@@ -58,7 +79,7 @@ function headerHTML() {
       console.error('Error loading the sidebar:', error);
     });
 
-    return ``;
+  return ``;
 }
 
 function footerHTML() {
