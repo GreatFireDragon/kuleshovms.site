@@ -21,3 +21,4 @@ jobs:
           cd /var/www/html/greatfiredragon.site
           git fetch --all
           git reset --hard origin/main
+          systemctl reload nginx
