@@ -95,3 +95,49 @@
     transform: translateY(-50px);
   }
 }
+
+
+
+
+
+
+
+
+
+/* ------------------------------------------------------------------------- */
+/* RSS FEED from TELEGRAM */
+/* ------------------------------------------------------------------------- */
+#telegram-feed {
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding)
+}
+
+.post-content > video {
+  
+}
+
+.post {
+    border: 2px dotted #00000073;
+    border-radius: 8px;
+    padding: 15px;
+    background: #00000014;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.post-date {
+    color: #888;
+    font-size: 0.85em;
+}
+.post-title {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2em;
+    display: block;
+    margin-bottom: 10px;
+}
+.post-content img {
+    max-width: 100%; /* Чтобы картинки из телеграма не вылезали */
+    height: auto;
+    border-radius: 4px;
+}

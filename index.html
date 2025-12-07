@@ -133,22 +133,18 @@
         </section>
 
         <section>
-          <h1>RSS FEED</h1>
-
-          <div class="news-container">
-            <h2>Новости из Телеграма</h2>
-            <div id="telegram-feed">Загрузка постов...</div>
-          </div>
+          <h2>Новости из Телеграма</h2>
+          <br />
+          <div id="telegram-feed">Загрузка постов...</div>
 
           <script>
             async function loadTelegramPosts() {
               const container = document.getElementById("telegram-feed");
 
-              // Ссылка на твой RSS-Bridge.
-              // Важно: format=Json
-              // Используем относительный путь, раз nginx настроен через alias /rss/
+              // ПЕРЕД ПУШЕМ ПОМЕНЯТЬ НА БУЕОВУЮ ССЫЛКУ!
               const url =
                 "/rss/?action=display&bridge=TelegramBridge&username=gfd_channel&format=Json";
+              // const url = "/test-rss-feed.json";
 
               try {
                 const response = await fetch(url);
