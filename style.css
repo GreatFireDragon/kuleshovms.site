@@ -236,10 +236,6 @@ aside {
   font-family: var(--heading-font);
 }
 
-.sidebar-section:not(:last-child) {
-  margin-bottom: 2em;
-}
-
 .sidebar-section ul,
 .sidebar-section ol {
   padding-left: 1.5em;
