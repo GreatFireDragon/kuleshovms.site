@@ -7,8 +7,8 @@ async function loadTelegramPosts() {
     const postsStep = 5; // Сколько постов загружать за раз
 
     // ПЕРЕД ПУШЕМ ПОМЕНЯТЬ НА БОЕВУЮ ССЫЛКУ!
-    // const url = "/rss/?action=display&bridge=TelegramBridge&username=gfd_channel&format=Json";
-    const url = "/test-rss-feed.json";
+    const url = "/rss/?action=display&bridge=TelegramBridge&username=gfd_channel&format=Json";
+    // const url = "/test-rss-feed.json";
 
     // Функция для отрисовки порции постов
     const renderPosts = () => {
