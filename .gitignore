@@ -1,3 +1,4 @@
 # Ignore vscode
 .vscode/
 test-rss-feed.json
+test.py
