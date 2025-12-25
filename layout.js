@@ -86,6 +86,8 @@ function footerHTML() {
   // You can use it to refer to images etc.
   // Example: <img src="${nesting}img/logo.png"> might output <img src="../img/logo.png">
 
+  const currentYear = new Date().getFullYear();
+
   return `
 
 
@@ -94,9 +96,7 @@ function footerHTML() {
       <!-- =============================================== -->
 
       <footer>
-            <div>GreatFireDragon
-            <br/>
-            Template generated with <a href="https://petrapixel.neocities.org/coding/layout-generator.html">petrapixel's layout generator</a>.</div>
+           GreatFireDragon &copy; 2020-${currentYear} 
       </footer>`;
 }
 

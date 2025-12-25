@@ -1,0 +1,183 @@
+/* =========================================
+   Intro Grid (1/3 фото, 2/3 текст)
+   ========================================= */
+#about-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr; 
+  gap: var(--padding); 
+  align-items: start;
+}
+
+/* Фото */
+.intro-photo-col img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--round-borders);
+  border: 4px solid var(--sidebar-background-color); 
+  box-shadow: 6px 6px 0px var(--sidebar-text-color);
+  transition: all 0.2s;
+}
+
+.intro-photo-col img:hover {
+  transform: scale(1.03);
+}
+
+/* Текст */
+.intro-text-col h1 {
+  margin-top: 0;
+  font-family: var(--heading-font);
+  color: var(--text-color);
+}
+
+.subtitle {
+  font-size: 1.1em;
+  color: var(--sidebar-text-color);
+  margin-top: -3px;
+  margin-bottom: var(--padding);
+  font-style: italic;
+  font-family: var(--font);
+}
+
+.intro-bio p {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+/* Контакты */
+.contact-info {
+  margin-top: var(--padding);
+  padding: var(--padding);
+  background-color: rgba(255, 255, 255, 0.3); /* Немного высветляем фон под контактами */
+  border-radius: var(--round-borders);
+  border-left: 4px solid var(--link-color);
+  font-family: var(--font);
+}
+
+.contact-info p {
+  margin: 5px 0;
+}
+
+/* Адаптив для телефонов */
+@media (max-width: 768px) {
+  #about-intro-grid {
+    grid-template-columns: 1fr; /* Одна колонка */
+  }
+  
+  .intro-photo-col img {
+    display: none;
+  }
+}
+
+/* =========================================
+   Кнопка скачивания
+   ========================================= */
+.button-link {
+  display: inline-block;
+  background-color: var(--link-color);
+  color: #fff !important; /* Принудительно белый текст на кнопке */
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: var(--round-borders);
+  font-family: var(--heading-font);
+  font-weight: bold;
+  border: 2px solid var(--sidebar-text-color);
+  box-shadow: 3px 3px 0px var(--sidebar-text-color);
+  transition: all 0.2s;
+}
+
+.button-link:hover {
+  background-color: var(--link-color-hover);
+  transform: translate(2px, 2px); /* Эффект нажатия */
+  box-shadow: 1px 1px 0px var(--sidebar-text-color);
+  text-decoration: none;
+}
+
+/* =========================================
+   Опыт работы (Cards)
+   ========================================= */
+.job-card {
+  /* Фон карточки чуть темнее или светлее основного, 
+     здесь берем sidebar-background-color с прозрачностью или просто белый с прозрачностью */
+  background-color: rgba(255,255,255, 0.4);
+  border: 2px solid var(--sidebar-background-color);
+  padding: var(--padding);
+  margin-bottom: var(--margin);
+  border-radius: var(--round-borders);
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  border-bottom: 2px dashed var(--sidebar-background-color);
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+}
+
+.job-header h3 {
+  margin: 0;
+  font-family: var(--heading-font);
+  color: var(--text-color);
+}
+
+.job-date {
+  font-family: var(--font);
+  background: var(--sidebar-background-color);
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.job-content ul li {
+  list-style-type: square; /* Квадратные маркеры в ретро стиле */
+  margin-left: 20px;
+}
+
+/* Иконки */
+.tech-stack-icons {
+  font-size: 32px;
+}
+
+
+
+/* =========================================
+   Education & Misc
+   ========================================= */
+.misc-container {
+  display: flex;
+  gap: calc(var(--padding) * 2);
+  flex-wrap: wrap;
+}
+
+.misc-container > div {
+  flex: 1;
+  min-width: 250px;
+  background: rgba(255,255,255, 0.2);
+  padding: var(--padding);
+  border-radius: var(--round-borders);
+  border: 1px solid var(--sidebar-background-color);
+}
+
+.images-showcase {
+  display: flex;
+  gap: var(--padding);
+  flex-wrap: wrap;
+  margin-top: var(--margin);
+  align-items: center;
+  justify-content: center;
+}
+
+.images-showcase img {
+  height: 6em;
+  width: auto;
+  border: 2px solid var(--sidebar-text-color);
+  border-radius: var(--round-borders);
+  box-shadow: 4px 4px 0 var(--sidebar-background-color);
+  transition: all 0.2s;
+}
+
+.images-showcase img:hover {
+  transform: scale(1.03);
+}

@@ -19,6 +19,11 @@
 
     <!-- Additional files: -->
     <link href="./index.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
 
     <script>
       // Template generated with petrapixel's layout generator.
@@ -47,18 +52,269 @@
         <!-- MAIN CONTENT -->
         <!-- =============================================== -->
 
-        <!-- Welcome -->
-        <section>
-          <h1>Welcome to my site!</h1>
-          <div id="welcome-section">
-            <div>
-              Добро пожаловать на мой сайт! Здесь я выкладываю
-              <b>всё, что захочу</b>: какие-то мысли и рассуждения, советы и
-              туторивалы, а может и ещё что.
-              <br />
-              <i> ⚠️Сайт ещё находится на стадии активной разработки⚠️ </i>
+        <!-- =============================================== -->
+        <!-- INTRO & CONTACTS -->
+        <!-- =============================================== -->
+        <section id="about-intro">
+          <!-- Сетка: слева фото, справа текст -->
+          <div id="about-intro-grid">
+            <!-- Колонка 1: Фото -->
+            <div class="intro-photo-col">
+              <img
+                src="./images/riby-cat-drooling.gif"
+                alt="Тут должно было быть фото котика, но всё сломалось"
+                title="Это я за работой"
+              />
             </div>
-            <img id="leyley_logo" src="./images/home/LeyLeySmallIcon.png" />
+
+            <!-- Колонка 2: Информация -->
+            <div class="intro-text-col">
+              <h1>Кулешов Михаил</h1>
+              <p class="subtitle">Системный администратор / IT-специалист</p>
+
+              <div class="intro-bio">
+                <p>
+                  Я IT-специалист с опытом поддержки пользователей и
+                  автоматизации рутинных задач. Успел попробовать себя в
+                  <b>1С</b>, <b>веб-разработке</b> и <b>SEO</b>, но понял, что
+                  моё призвание — системное администрирование.
+                </p>
+                <p>
+                  Ищу работу в офисе в дружной команде (удалёнка — это не моё,
+                  мне нужно живое общение и движение).
+                </p>
+              </div>
+
+              <!-- Контакты -->
+              <address class="contact-info">
+                <p>📍 <b>Локация:</b> Москва, Россия</p>
+                <p>
+                  ✉️
+                  <a href="mailto:kulmike2002@gmail.com"
+                    >kulmike2002@gmail.com</a
+                  >
+                </p>
+                <p>☎️ <a href="tel:+7 920 799 0456">+7 (920) 799 0456</a></p>
+                <p>💬 <a href="https://t.me/ТВОЙ_ЮЗЕРНЕЙМ">Telegram</a></p>
+              </address>
+
+              <br />
+              <!-- Кнопка -->
+              <div style="text-align: center">
+                <a href="./Resume.pdf" class="button-link" download>
+                  Скачать резюме (PDF)
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- =============================================== -->
+        <!-- EXPERIENCE -->
+        <!-- =============================================== -->
+        <section id="experience">
+          <h2>💼 Опыт работы</h2>
+          <br />
+
+          <!-- Job 1 -->
+          <article class="job-card">
+            <div class="job-header">
+              <h3>Digital Strategy</h3>
+              <span class="job-date">02.2024 – 06.2025</span>
+            </div>
+            <p><i>Технический специалист / SEO-аналитик</i></p>
+
+            <div class="job-content">
+              <p>
+                Занимался техническим аудитом сайтов и автоматизацией рабочих
+                процессов отдела.
+              </p>
+
+              <ul>
+                <li>
+                  🤖 <b>Автоматизация рутины:</b> написал несколько расширений и
+                  userscripts (Tampermonkey) для упрощения жизни коллегам.
+                </li>
+                <li>
+                  🔧 <b>Поддержка:</b> диагностировал падения сайтов, общался с
+                  хостерами, управлял файлами через CMS и SSH.
+                </li>
+                <li>
+                  🌐 <b>Серверная часть:</b> настраивал SSL-сертификаты и
+                  веб-сервер Nginx на VPS.
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- <div class="tech-stack-icons"> -->
+          <marquee class="tech-stack-icons">
+            <i class="devicon-chrome-plain"></i>
+            <i class="devicon-firefox-plain"></i>
+            <i class="devicon-google-plain"></i>
+
+            <i class="devicon-javascript-plain"></i>
+            <i class="devicon-python-plain"></i>
+            <i class="devicon-php-plain"></i>
+            <i class="devicon-bash-plain"></i>
+            <i class="devicon-ssh-original"></i>
+
+            <i class="devicon-html5-plain"></i>
+            <i class="devicon-css3-plain"></i>
+            <i class="devicon-wordpress-plain"></i>
+
+            <i class="devicon-linux-plain"></i>
+            <i class="devicon-windows8-original"></i>
+            <i class="devicon-nginx-original"></i>
+            <i class="devicon-apache-plain"></i>
+
+            <i class="devicon-git-plain"></i>
+            <i class="devicon-vscode-plain"></i>
+            <i class="devicon-nodejs-plain"></i>
+          </marquee>
+          <!-- </div> -->
+
+          <!-- Job 2 -->
+          <article class="job-card">
+            <div class="job-header">
+              <h3>Внедренческий центр «Лис С»</h3>
+              <span class="job-date">07.2023 – 12.2023</span>
+            </div>
+            <p><i>Специалист поддержки 1С / Младший администратор</i></p>
+
+            <div class="job-content">
+              <p>
+                Осуществлял техническую поддержку пользователей и доработку
+                конфигураций.
+              </p>
+              <ul>
+                <li>
+                  💾 <b>Администрирование 1C:</b> бэкапы, восстановление,
+                  обновление типовых и нетиповых конфигураций.
+                </li>
+                <li>
+                  🛠️ <b>Доработка конфигураций:</b> исправление ошибок в
+                  конфигурациях, добавление новых функциональных возможностей.
+                </li>
+                <li>
+                  🖥️ <b>Windows Server:</b> мониторинг RDP-сессий, перезагрузка
+                  зависших служб, администрирование прав доступа.
+                </li>
+              </ul>
+            </div>
+          </article>
+        </section>
+
+        <section>
+          <h2>
+            <i class="devicon-github-original"></i> FOSS и другие мелкие проекты
+          </h2>
+
+          <div class="images-showcase">
+            <a
+              target="_blank"
+              href="https://chromewebstore.google.com/detail/wordstat-utils/pfocjoohpmikggjeoldecjmiajjekfoj"
+            >
+              <img
+                src="./images/ChromeWebStore.png"
+                title="Yandex Wordstat ассистент"
+                loading="lazy"
+              />
+            </a>
+            <a
+              target="_blank"
+              href="https://addons.mozilla.org/en-US/firefox/user/15546771/"
+            >
+              <img
+                src="./images/FirefoxAddons.png"
+                title="Мои расширения фаерфокс"
+                loading="lazy"
+              />
+            </a>
+            <a
+              target="_blank"
+              href="https://greasyfork.org/en/users/1308328-greatfiredragon"
+            >
+              <img
+                src="./images/GreesyFork.png"
+                title="Мои скрипты greasyfork"
+                loading="lazy"
+              />
+            </a>
+            <a
+              target="_blank"
+              href="https://userstyles.world/user/GreatFireDragon"
+            >
+              <img
+                src="./images/UserStyles.png"
+                title="Мои CSS стили userstyles"
+                loading="lazy"
+              />
+            </a>
+            <a
+              target="_blank"
+              href="https://github.com/GreatFireDragon/TCOAAL_Asset_Decryptorn"
+            >
+              <img
+                src="./images/Github.png"
+                title="TCOAAL Asset Decryptor"
+                loading="lazy"
+              />
+            </a>
+          </div>
+        </section>
+
+        <!-- =============================================== -->
+        <!-- EDUCATION & OTHER -->
+        <!-- =============================================== -->
+        <section id="education-other">
+          <h2>📚 Miscellenius</h2>
+          <br />
+
+          <div class="misc-container">
+            <div>
+              <h3>Образование</h3>
+              Неоконченное высшее
+              <ul>
+                <li><b>ИТМО</b> — Телекоммуникации</li>
+                <li><b>СПбГУПТД</b> — Прикладная информатика</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3>Языки и права</h3>
+              <ul>
+                <li>🇬🇧 <b>Английский</b> знаю отлично, подтвержденный B2</li>
+                <li>🚗 <b>Права</b> + личный автомобиль</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="images-showcase">
+            <a
+              href="./images/licence.png"
+              target="_blank"
+              title="Водительские права"
+            >
+              <img src="./images/licence.png" loading="lazy" />
+            </a>
+            <a
+              href="./pdf/EPT.pdf"
+              target="_blank"
+              title="Уровень B2 английский"
+            >
+              <img src="./images/EPT.png" loading="lazy" />
+            </a>
+            <a href="./pdf/1C-1.pdf" target="_blank" title="1C профессионал">
+              <img src="./images/1C-1.png" loading="lazy" />
+            </a>
+            <a
+              href="./pdf/1C-2.pdf"
+              target="_blank"
+              title="1C специалист по технологическим вопросам крупных внедрений"
+            >
+              <img src="./images/1C-2.png" loading="lazy" />
+            </a>
           </div>
         </section>
       </main>
