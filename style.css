@@ -623,3 +623,8 @@ main h6 {
   }
 }
 
+/* 88x31 */
+.img88x31 img {
+  width: 88px;
+  height: 31px;
+}
