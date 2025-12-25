@@ -584,7 +584,7 @@ main h6 {
     grid-auto-flow: dense;
   }
 
-  .sidebar-section:last-child {
+  .sidebar-section:nth-last-child(2), .sidebar-section:nth-last-child(1) {
       grid-column: 1 / span 2;
     }
   
