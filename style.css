@@ -200,6 +200,12 @@ header {
 
 .header-image img {
   width: 70px;
+  transition: all 0.2s ease-in-out;
+}
+
+.header-image img:hover {
+  cursor: pointer;
+  scale: 1.1;
 }
 
 /* -------------------------------------------------------- */

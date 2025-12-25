@@ -51,9 +51,9 @@ function headerHTML() {
 <!-- =============================================== -->
 
 <header>
-  <div class="header-image">
+  <a href="/index.html" class="header-image">
     <img src="/images/GFD Logo.svg" alt="GreatFireDragon Logo" />
-  </div>
+  </a>
   <div class="header-title">GreatFireDragon</div>
 </header>
     `;
