@@ -269,6 +269,12 @@ aside img:hover {
   color: color-mix(in srgb, var(--link-color-hover) 80%, black);
 }
 
+.not-on-mobile {
+  @media (max-width: 800px) {
+    display: none;
+  }
+}
+
 /* Sidebar Blockquote: */
 
 .sidebar-section blockquote {
