@@ -234,8 +234,7 @@ aside img:hover {
 }
 
 #sidebar-sudoku {
-  max-width: 168px; 
-  padding-top: 1rem;
+  max-width: 168px;
 }
 
 .left-sidebar {
@@ -250,6 +249,7 @@ aside img:hover {
   font-weight: bold;
   font-size: 1.2em;
   font-family: var(--heading-font);
+  margin: 0.5em 0;
 }
 
 .sidebar-section ul,
@@ -267,10 +267,6 @@ aside img:hover {
 .sidebar-section a:hover,
 .sidebar-section a:hover {
   color: color-mix(in srgb, var(--link-color-hover) 80%, black);
-}
-
-.sidebar-section > *:not(p):not(ul):not(ol):not(blockquote) {
-  margin-top: 10px;
 }
 
 /* Sidebar Blockquote: */
@@ -334,10 +330,6 @@ footer a:focus {
 /* -------------------------------------------------------- */
 /* NAVIGATION */
 /* -------------------------------------------------------- */
-
-nav .sidebar-title {
-  margin-bottom: 0.5em;
-}
 
 nav ul {
   margin: 0 -30px;
@@ -643,4 +635,8 @@ main h6 {
 .img88x31 img {
   width: 88px;
   height: 31px;
+}
+
+.rounded-image {
+  border-radius: var(--round-borders);
 }
