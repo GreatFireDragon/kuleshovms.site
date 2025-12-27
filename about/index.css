@@ -8,6 +8,12 @@
   align-items: start;
 }
 
+@media (max-width: 800px) {
+  #about-intro-grid {
+    grid-template-columns: 1fr; /* Одна колонка */
+  }
+}
+
 /* Фото */
 .intro-photo-col img {
   width: 100%;
@@ -57,16 +63,7 @@
   margin: 5px 0;
 }
 
-/* Адаптив для телефонов */
-@media (max-width: 768px) {
-  #about-intro-grid {
-    grid-template-columns: 1fr; /* Одна колонка */
-  }
-  
-  .intro-photo-col img {
-    display: none;
-  }
-}
+
 
 /* =========================================
    Кнопка скачивания

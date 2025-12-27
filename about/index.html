@@ -80,11 +80,17 @@
           <div id="about-intro-grid">
             <!-- Колонка 1: Фото -->
             <div class="intro-photo-col">
-              <img
-                src="./images/riby-cat-drooling.gif"
-                alt="Тут должно было быть фото котика, но всё сломалось"
-                title="Это я за работой"
-              />
+              <picture>
+                <source
+                  media="(max-width: 800px)"
+                  srcset="/images/home/rigby-long.gif"
+                />
+                <img
+                  src="./images/riby-cat-drooling.gif"
+                  alt="Тут должно было быть фото котика, но всё сломалось"
+                  title="Это я за работой"
+                />
+              </picture>
             </div>
 
             <!-- Колонка 2: Информация -->
