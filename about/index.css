@@ -160,6 +160,8 @@
   border: 1px solid var(--sidebar-background-color);
 }
 
+
+/* Картинки */
 .images-showcase {
   display: flex;
   gap: var(--padding);
@@ -169,15 +171,56 @@
   justify-content: center;
 }
 
+.images-showcase a {
+  position: relative; 
+  display: inline-block; 
+  text-decoration: none; 
+}
+
 .images-showcase img {
   height: 6em;
   width: auto;
+  display: block; 
   border: 2px solid var(--sidebar-text-color);
   border-radius: var(--round-borders);
   box-shadow: 4px 4px 0 var(--sidebar-background-color);
   transition: all 0.2s;
 }
 
-.images-showcase img:hover {
+.images-showcase a:hover img {
   transform: scale(1.03);
+}
+
+.image-description {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  
+  /* Визуал */
+  font-size: 0.8em;
+  line-height: 1.2;
+  text-align: center;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 2px 5px;
+  
+  /* Чтобы скругления совпадали с низом картинки */
+  border-bottom-left-radius: var(--round-borders);
+  border-bottom-right-radius: var(--round-borders);
+  
+  pointer-events: none; 
+}
+
+
+/* ====================================================
+   VPS INFO
+======================================================= */
+#vps-info img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--round-borders);
+  border: 4px solid var(--sidebar-background-color);
+  transition: all 0.2s;
 }

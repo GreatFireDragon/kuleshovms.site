@@ -221,7 +221,7 @@ aside {
   color: var(--sidebar-text-color);
 
   position: sticky;
-  top: 114px;
+  top: 100px;
   height: max-content;
 
   
