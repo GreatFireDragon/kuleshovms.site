@@ -72,12 +72,20 @@
 
         <!-- Welcome -->
         <section>
-          <h1>Welcome to my site!</h1>
+          <h1>Welcome, это мой сайт!</h1>
           <div id="welcome-section">
             <div>
-              Добро пожаловать на мой сайт! Здесь я выкладываю
-              <b>всё, что захочу</b>: какие-то мысли и рассуждения, советы и
-              туторивалы, а может и ещё что.
+              <p>
+                <b>GreatFireDragon</b> - это мой ник, отсюда и название сайта.
+              </p>
+              <p>
+                Раньше я делал сайты на React, Vue, Svelte... Но работа в SEO
+                научила меня тому, что для подобных визиток нет ничего лучше
+                чистого HTML.
+              </p>
+
+              Спасибо <a href="https://neocities.org">neocities.org</a> за
+              вдохновение, обожаю дизайн 90х-00х!
             </div>
             <img
               id="leyley_logo"
@@ -99,11 +107,13 @@
 
           <div id="about-me-grid">
             <!-- Column 1: Photo -->
-            <img
-              src="./images/home/home-me-photo.webp"
-              alt="Это я"
-              loading="eager"
-            />
+            <picture>
+              <source
+                media="(min-width: 800px)"
+                srcset="./images/home/home-me-photo.webp"
+              />
+              <img src="./images/home/rigby-long.gif" loading="eager" />
+            </picture>
 
             <!-- Column 2: Text -->
             <div>
@@ -129,7 +139,7 @@
               </p> -->
 
               <!-- <hr /> -->
-              <div class="welcome-to-the-site-buttons">
+              <div class="welcome-to-the-site-buttons img88x31">
                 <img
                   loading="eager"
                   src="/images/88x31/BestViewedWithComputer.gif"

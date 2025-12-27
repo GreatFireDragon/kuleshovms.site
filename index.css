@@ -1,37 +1,47 @@
 /* 
  * About me section
  */
-
-
-/* Layout grid */
 #about-me-grid {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  gap: 30px;
-  align-items: stretch;
+  display: flex; /* Changed from grid */
+  gap: var(--padding);
+  align-items: stretch; /* Keeps them same height */
 }
 
+#about-me-grid > picture {
+  flex: 1; /* Equivalent to 1fr */
+  display: flex; /* Crucial: allows the img inside to fill height */
+  transition: transform 0.3s ease;
+  overflow: hidden; /* Keeps hover effect clean */
+  border-radius: var(--round-borders); /* Moved border-radius to wrapper for cleaner crop */
+}
 
+#about-me-grid > div {
+  flex: 4; /* Equivalent to 4fr */
+}
 
 /* Image styling */
-#about-me-grid > img {
+#about-me-grid > picture > img {
   width: 100%;
-  aspect-ratio: 9 / 20;
-  object-fit: cover;
-  display: block;
-  border-radius: 4px;
-  transition: transform 0.2s ease-in-out;
+  height: 100%; 
+  object-fit: cover; 
+  border-radius: var(--round-borders);
+}
+
+/* Mobile Layout */
+@media (max-width: 800px) {
+  #about-me-grid {
+    flex-direction: column; 
+    gap: 0;
+  }
+  
+  #about-me-grid > picture > img {
+    height: auto; 
+  }
 }
 
 /* Hover effect (Instant snap, exactly like original) */
-#about-me-grid img:hover {
+#about-me-grid > picture:hover {
   transform: scale(1.2) rotate(4deg);
-}
-
-/* Text styling */
-/* Target the first paragraph inside the second column */
-#about-me-grid > div:last-child > p:first-child {
-  margin-top: 0;
 }
 
 /* Abbreviation styling inside the grid */
@@ -41,10 +51,7 @@
 }
 
 
-#about-me-grid div:last-child {
-  max-height: 365px; 
-  overflow-y: auto;
-}
+
 
 /* Welcomve to the site buttons */
 .welcome-to-the-site-buttons {
@@ -54,9 +61,10 @@
   gap: 10px;
 }
 
-.welcome-to-the-site-buttons img {
-  width: 88px;
-  height: 31px;
+@media (max-width: 799px) {
+  .welcome-to-the-site-buttons {
+    justify-content: center;
+  }
 }
 
 /* Welcome section */
@@ -183,14 +191,3 @@ button#tg-load-more-btn {
   
 }
 
-/* CSS Code for devices < 800px */
-@media (max-width: 800px) {
-  #about-me-grid {
-    gap: 0;
-    grid-template-columns: 1fr;
-  }
-  
-  #about-me-grid img {
-    display: none;
-  }
-}

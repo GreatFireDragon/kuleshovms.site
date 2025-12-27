@@ -96,7 +96,7 @@ body::before {
 }
 
 /* LAYER 2 remains unchanged */
-body::after {
+/* body::after {
   content: "";
   position: fixed;
   top: 0;
@@ -108,7 +108,7 @@ body::after {
   background-repeat: repeat;
   filter: contrast(0.5);
   pointer-events: none;
-}
+} */
 
 ::selection {
   /* (Text highlighted by the user) */
@@ -223,8 +223,19 @@ aside {
   position: sticky;
   top: 100px;
   height: max-content;
+}
 
-  
+aside img {
+  transition: all 0.2s ease-in-out;
+}
+
+aside img:hover {
+  scale: 1.03;
+}
+
+#sidebar-sudoku {
+  max-width: 168px; 
+  padding-top: 1rem;
 }
 
 .left-sidebar {

@@ -4,27 +4,6 @@
 
 <aside class="left-sidebar">
   <div class="sidebar-section">
-    <div class="sidebar-title">Hosted on VPS &#x1f4a7;</div>
-    <img
-      class="full-width-image"
-      src="/images/vps-mini.gif"
-      style="aspect-ratio: 88/31"
-      loading="lazy"
-    />
-  </div>
-
-  <div class="sidebar-section">
-    <div class="sidebar-title">About this website</div>
-    <p>Меня зовут Михаил, <b>GreatFireDragon</b> - это мой ник.</p>
-    <p>
-      Раньше я делал сайты на React, Vue, Svelte... Но работа в SEO научила меня
-      тому, что для подобных визиток нет ничего лучше чистого HTML.
-    </p>
-
-    Спасибо <b>neocities.org</b> за вдохновение!
-  </div>
-
-  <div class="sidebar-section">
     <div class="sidebar-title">Badges ⭐</div>
     <marquee class="img88x31">
       <a href="https://neocities.org/" target="_blank">
@@ -42,17 +21,27 @@
           alt="petrapixel"
           loading="eager"
       /></a>
-      <img src="/images/88x31/vps-88x31.gif" loading="eager" />
     </marquee>
   </div>
 
   <div class="sidebar-section">
+    <div class="sidebar-title">Сможешь решить судоку?</div>
+    <a href="https://sudokupad.app/tkn1nytyis">
+      <img src="/images/home/sudoku.webp" id="sidebar-sudoku"
+    /></a>
+  </div>
+
+  <div class="sidebar-section">
     <div class="sidebar-title">I love TCOAAL 🖤</div>
-    <img
-      class="full-width-image"
-      src="/images/88x31/88x31_coffinHug.jpg"
-      loading="lazy"
-    />
+    <a
+      href="https://store.steampowered.com/app/2378900/The_Coffin_of_Andy_and_Leyley/"
+    >
+      <img
+        class="full-width-image"
+        src="/images/88x31/88x31_coffinHug.jpg"
+        loading="lazy"
+      />
+    </a>
   </div>
 </aside>
 
@@ -98,20 +87,25 @@
   <div class="sidebar-section">
     <div class="sidebar-title">88x31</div>
     <marquee class="img88x31">
-      <img loading="lazy" src="/images/88x31/get-firefox.gif" />
-      <img loading="lazy" src="/images/88x31/best_viewed_with_eyes.gif" />
-      <img loading="lazy" src="/images/88x31/play-with-steam.gif" />
-      <img loading="lazy" src="/images/88x31/free-tech-tips-here.gif" />
-      <img loading="lazy" src="/images/88x31/firefox_now.jpg" />
+      <img loading="eager" src="/images/88x31/get-firefox.gif" />
+      <img loading="eager" src="/images/88x31/best_viewed_with_eyes.gif" />
+      <img loading="eager" src="/images/88x31/play-with-steam.gif" />
+      <img loading="eager" src="/images/88x31/free-tech-tips-here.gif" />
+      <img loading="eager" src="/images/88x31/firefox_now.jpg" />
+      <img loading="eager" src="/images/88x31/vps-88x31.gif" />
     </marquee>
   </div>
 
   <div class="sidebar-section">
-    <div class="sidebar-title">Сможешь решить судоку?</div>
-    <a href="https://sudokupad.app/tkn1nytyis">
+    <div class="sidebar-title">Hosted on VPS</div>
+    <picture>
+      <source media="(max-width: 800px)" srcset="/about/images/vps.gif" />
       <img
-        src="/images/home/sudoku.webp"
-        style="max-width: 168px; padding-top: 1rem"
-    /></a>
+        class="full-width-image"
+        src="/images/vps-mini.gif"
+        style="aspect-ratio: 88/31; margin-top: var(--margin)"
+        loading="lazy"
+      />
+    </picture>
   </div>
 </aside>
