@@ -104,21 +104,17 @@
           <div id="about-me-grid">
             <!-- Column 1-->
             <video autoplay loop muted playsinline width="100%">
-              <!-- Desktop: Shows if width is 800px or more -->
               <source
                 src="./images/home/luna-vertical.webm"
                 type="video/webm"
                 media="(min-width: 800px)"
+                fetchpriority="high"
               />
-
-              <!-- Mobile/Default: Shows if width is less than 800px -->
               <source
                 src="./images/home/rigby-home-long.webm"
                 type="video/webm"
+                fetchpriority="high"
               />
-
-              <!-- Fallback: Shows standard GIF if the browser is very old -->
-              <img src="./images/home/luna-vertical.gif" alt="Animation" />
             </video>
 
             <!-- Column 2 -->
