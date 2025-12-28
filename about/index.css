@@ -176,7 +176,7 @@
 
 .images-showcase img {
   height: 6em;
-  width: auto;
+  width: 9em;
   display: block; 
   border: 2px solid var(--sidebar-text-color);
   border-radius: var(--round-borders);
