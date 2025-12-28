@@ -55,7 +55,7 @@
   gap: 10px;
 }
 
-@media (max-width: 799px) {
+@media (max-width: 800px) {
   .welcome-to-the-site-buttons {
     justify-content: center;
   }
@@ -256,13 +256,12 @@ button#tg-load-more-btn {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%; /* Stretch across the top */
-  box-sizing: border-box; /* Ensures padding doesn't break width */
+  width: 100%; 
+  box-sizing: border-box;
   padding: 20px;
   
   /* Typography */
   color: #fff;
-  font-family: 'Roboto', Arial, sans-serif; /* System fonts are fine too */
   font-size: 18px;
   font-weight: 500;
   line-height: 1.3;

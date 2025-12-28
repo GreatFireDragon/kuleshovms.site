@@ -1,19 +1,50 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Sofia+Sans+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap'); */
 
-/* -------------------------------------------------------- */
-/* GLOBAL STYLES */
-/* -------------------------------------------------------- */
-
-body {
-  font-family: "Anonymous Pro", monospace;
+/* anonymous-pro-regular - cyrillic_latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Anonymous Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/anonymous-pro-v22-cyrillic_latin-regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+       url('../fonts/anonymous-pro-v22-cyrillic_latin-regular.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
 }
+
+/* anonymous-pro-italic - cyrillic_latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Anonymous Pro';
+  font-style: italic;
+  font-weight: 400;
+  src: url('../fonts/anonymous-pro-v22-cyrillic_latin-italic.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+       url('../fonts/anonymous-pro-v22-cyrillic_latin-italic.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+}
+
+/* anonymous-pro-700 - cyrillic_latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Anonymous Pro';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/anonymous-pro-v22-cyrillic_latin-700.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+       url('../fonts/anonymous-pro-v22-cyrillic_latin-700.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+}
+
+/* anonymous-pro-700italic - cyrillic_latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Anonymous Pro';
+  font-style: italic;
+  font-weight: 700;
+  src: url('../fonts/anonymous-pro-v22-cyrillic_latin-700italic.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+       url('../fonts/anonymous-pro-v22-cyrillic_latin-700italic.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+}
+
 
 
 /* -------------------------------------------------------- */
 /* VARIABLES */
 /* -------------------------------------------------------- */
-
-/* Variables are used like this: var(--text-color) */
 :root {
   /* Background Colors: */
   --background-color: #d6c8b6;
@@ -52,10 +83,6 @@ html {
 }
 
 body {
-  /* Initialize the movement variables to 0 */
-  --move-x: 0px;
-  --move-y: 0px;
-
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -194,7 +221,7 @@ header {
   font-size: 2.5em;
   font-weight: bold;
   color: var(--sidebar-text-color);
-  text-shadow: 0 0 5px #c43429, 0 0 10px #c43429, 0 0 15px var(--sidebar-text-color);
+  text-shadow: 0 0 5px var(--link-color), 0 0 10px var(--link-color);
 }
 
 .header-image img {
@@ -301,7 +328,7 @@ aside img:hover {
 }
 
 .site-button textarea {
-  font-family: monospace;
+  font-family: var(--font);
   font-size: 0.7em;
 }
 

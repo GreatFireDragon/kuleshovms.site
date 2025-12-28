@@ -1,32 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Page has finished loading. Now, do things.
-  loadLayoutByPetraPixel();
-
-  // Background shadow movement
-  document.addEventListener('mousemove', (e) => {
-    // 1. Get the mouse position
-    const x = e.clientX;
-    const y = e.clientY;
-
-    // 2. Get the center of the screen
-    const centerX = window.innerWidth / 2;
-    const centerY = window.innerHeight / 2;
-
-    // 3. Define sensitivity (lower = subtler movement, higher = more movement)
-    const sensitivity = 0.01;
-
-    // 4. Calculate the offset
-    // We subtract center so movement is relative to the middle of the screen
-    const deltaX = (x - centerX) * sensitivity;
-    const deltaY = (y - centerY) * sensitivity;
-
-    // 5. Update the CSS variables on the body
-    document.body.style.setProperty('--move-x', `${deltaX}px`);
-    document.body.style.setProperty('--move-y', `${deltaY}px`);
-  });
-
-  
-  
+  loadLayoutByPetraPixel();  
 });
 
 function loadLayoutByPetraPixel() {
