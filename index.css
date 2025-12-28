@@ -2,29 +2,27 @@
  * About me section
  */
 #about-me-grid {
-  display: flex; /* Changed from grid */
+  display: flex;
   gap: var(--padding);
-  align-items: stretch; /* Keeps them same height */
+  align-items: stretch;
 }
 
-#about-me-grid > picture {
-  flex: 1; /* Equivalent to 1fr */
-  display: flex; /* Crucial: allows the img inside to fill height */
+#about-me-grid > video {
+  flex: 1;
+  display: block;
+  object-fit: cover;
+  border-radius: var(--round-borders);
   transition: transform 0.3s ease;
-  overflow: hidden; /* Keeps hover effect clean */
-  border-radius: var(--round-borders); /* Moved border-radius to wrapper for cleaner crop */
+  overflow: hidden; 
 }
 
 #about-me-grid > div {
-  flex: 3; /* Equivalent to 4fr */
+  flex: 3;
 }
 
-/* Image styling */
-#about-me-grid > picture > img {
-  width: 100%;
-  height: 100%; 
-  object-fit: cover; 
-  border-radius: var(--round-borders);
+/* Hover effect */
+#about-me-grid > video:hover {
+  transform: scale(1.2) rotate(4deg);
 }
 
 /* Mobile Layout */
@@ -34,22 +32,18 @@
     gap: 0;
   }
   
-  #about-me-grid > picture > img {
+  #about-me-grid > video {
+    /* Reset height for mobile so it maintains aspect ratio */
     height: auto; 
+    width: 100%;
   }
 }
 
-/* Hover effect (Instant snap, exactly like original) */
-#about-me-grid > picture:hover {
-  transform: scale(1.2) rotate(4deg);
-}
-
-/* Abbreviation styling inside the grid */
+/* Abbreviation styling */
 #about-me-grid abbr {
   cursor: help;
   border-bottom: 1px dotted;
 }
-
 
 
 
