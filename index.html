@@ -190,23 +190,21 @@
         </section>
 
         <section>
+          <h2>Последнее видео с YouTube</h2>
+          <br />
+          <div id="video-container" class="video-facade">
+            <!-- Loading state or fallback -->
+            <p>Загружаю...</p>
+          </div>
+          <script src="./latest-video.js"></script>
+        </section>
+
+        <section>
           <h2>Последние посты</h2>
           <br />
           <div id="telegram-feed">Загрузка постов...</div>
 
           <script src="/telegram-rss-feed.js"></script>
-        </section>
-
-        <section>
-          <h2>Последнее видео</h2>
-          <br />
-          <iframe
-            id="youtube-video"
-            src="https://www.youtube.com/embed?listType=playlist&list=UUyzSr6mqFWvt8RlMmqzHtYw&controls=0&modestbranding=1"
-            frameborder="0"
-            allowfullscreen
-          >
-          </iframe>
         </section>
       </main>
 
