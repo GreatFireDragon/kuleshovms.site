@@ -42,24 +42,6 @@
     <script src="./latest-video.js" defer></script>
     <script src="/telegram-rss-feed.js" defer></script>
 
-    <!-- Preload the Desktop Video -->
-    <link
-      rel="preload"
-      as="video"
-      href="./images/home/luna-vertical.webm"
-      media="(min-width: 800px)"
-      fetchpriority="high"
-    />
-
-    <!-- Preload the Mobile Video -->
-    <link
-      rel="preload"
-      as="video"
-      href="./images/home/rigby-home-long.webm"
-      media="(max-width: 799px)"
-      fetchpriority="high"
-    />
-
     <script defer>
       // Thank you petrapixel for the layout generator! I loved it and it made me a huge headstart!
       console.log(
@@ -124,17 +106,19 @@
 
           <div id="about-me-grid">
             <!-- Column 1-->
-            <video autoplay loop muted playsinline width="100%">
+            <picture>
               <source
-                src="/images/home/luna-vertical.webm"
-                type="video/webm"
+                srcset="/images/home/luna-vertical.webp"
+                type="image/webp"
                 media="(min-width: 800px)"
               />
-              <source
-                src="/images/home/rigby-home-long.webm"
-                type="video/webm"
+              <img
+                src="/images/home/rigby-home-long.webp"
+                type="image/webp"
+                width="100%"
+                alt="Rigby and his owner"
               />
-            </video>
+            </picture>
 
             <!-- Column 2 -->
             <div>

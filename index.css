@@ -7,21 +7,35 @@
   align-items: stretch;
 }
 
-#about-me-grid > video {
+/* 1. The Container (The Frame) */
+#about-me-grid > picture {
   flex: 1;
-  display: block;
-  object-fit: cover;
+  display: block; /* Important: picture is inline by default */
   border-radius: var(--round-borders);
+  overflow: hidden; /* Ensures the image doesn't spill out when zoomed */
+  
+  /* Optional: Ensures the frame takes up vertical space */
+  min-height: 100%; 
+}
+
+/* 2. The Image (The Content) */
+#about-me-grid > picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block; /* Removes bottom ghost space */
   transition: transform 0.3s ease;
-  overflow: hidden; 
 }
 
 #about-me-grid > div {
   flex: 3;
 }
 
-/* Hover effect */
-#about-me-grid > video:hover {
+/* 
+ * Hover effect 
+ * We hover the picture (frame), but transform the img (content)
+ */
+#about-me-grid > picture:hover img {
   transform: scale(1.2) rotate(4deg);
 }
 
@@ -32,10 +46,11 @@
     gap: 0;
   }
   
-  #about-me-grid > video {
-    /* Reset height for mobile so it maintains aspect ratio */
-    height: auto; 
+  #about-me-grid > picture {
     width: 100%;
+    /* Reset height to auto so the mobile image determines the aspect ratio */
+    height: auto; 
+    min-height: 0;
   }
 }
 
