@@ -34,10 +34,28 @@
     />
 
     <link href="/style.css" rel="stylesheet" />
+    <link href="/fonts.css" rel="stylesheet" />
     <script src="/layout.js"></script>
 
     <!-- Additional files: -->
     <link href="./index.css" rel="stylesheet" />
+    <!-- Preload the Desktop Video -->
+    <link
+      rel="preload"
+      as="video"
+      href="./images/home/luna-vertical.webm"
+      media="(min-width: 800px)"
+      fetchpriority="high"
+    />
+
+    <!-- Preload the Mobile Video -->
+    <link
+      rel="preload"
+      as="video"
+      href="./images/home/rigby-home-long.webm"
+      media="(max-width: 799px)"
+      fetchpriority="high"
+    />
 
     <script>
       // Template generated with petrapixel's layout generator.
@@ -105,15 +123,13 @@
             <!-- Column 1-->
             <video autoplay loop muted playsinline width="100%">
               <source
-                src="./images/home/luna-vertical.webm"
+                src="/images/home/luna-vertical.webm"
                 type="video/webm"
                 media="(min-width: 800px)"
-                fetchpriority="high"
               />
               <source
-                src="./images/home/rigby-home-long.webm"
+                src="/images/home/rigby-home-long.webm"
                 type="video/webm"
-                fetchpriority="high"
               />
             </video>
 
