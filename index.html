@@ -33,12 +33,15 @@
       fetchpriority="high"
     />
 
-    <link href="/style.css" rel="stylesheet" />
+    <script src="/layout.js" defer fetchpriority="high"></script>
     <link href="/fonts.css" rel="stylesheet" />
-    <script src="/layout.js" defer></script>
+    <link href="/style.css" rel="stylesheet" />
 
     <!-- Additional files: -->
     <link href="./index.css" rel="stylesheet" />
+    <script src="./latest-video.js" defer></script>
+    <script src="/telegram-rss-feed.js" defer></script>
+
     <!-- Preload the Desktop Video -->
     <link
       rel="preload"
@@ -208,15 +211,12 @@
             <!-- Loading state or fallback -->
             <p>Загружаю...</p>
           </div>
-          <script src="./latest-video.js" defer></script>
         </section>
 
         <section>
           <h2>Последние посты</h2>
           <br />
           <div id="telegram-feed">Загрузка постов...</div>
-
-          <script src="/telegram-rss-feed.js" defer></script>
         </section>
       </main>
 

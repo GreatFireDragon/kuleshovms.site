@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       >
       
       <div class="video-title">${cleanTitle}</div>
-      <div class="play-button" aria-label="Play Video"></div>
+      <div class="play-button"></div>
     `;
 
     // Click Listener

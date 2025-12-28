@@ -10,7 +10,8 @@
   /* Text Colors: */
   --text-color: #534c42;
   --sidebar-text-color: #3d3831;
-  --link-color: #cc748a;
+  /* --link-color: #cc748a; was too bright i think */
+  --link-color: #a4586b;
   --link-color-hover: #739854;
 
   /* Text: */
@@ -236,9 +237,10 @@ aside img:hover {
 
 .sidebar-section ul,
 .sidebar-section ol {
-  padding-left: 1.5em;
-  font-weight: bold; 
-  font-size: large; 
+  font-weight: bold;
+  font-size: large;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .sidebar-section ul a,
@@ -320,30 +322,40 @@ footer a:focus {
 /* -------------------------------------------------------- */
 
 nav ul {
-  margin: 0 -30px;
+  margin: 0;
   padding: 0;
   list-style: none;
   user-select: none;
-}
-
-nav ul li {
-  margin-bottom: 0;
+  width: 100%;
 }
 
 nav > ul li > a,
 nav > ul li > strong {
-  display: inline-block;
+  display: flex; 
+  align-items: center;
+  width: 100%; 
+  
+  min-height: 48px;       
+  padding: 8px 12px;      
+  box-sizing: border-box; 
+  border-radius: var(--round-borders);
+  gap: 10px; /* Space between icon and text */
 }
 
-
+nav > ul li > a:hover {
+  background-color: rgba(0,0,0,0.05); 
+  text-decoration: none;
+}
 
 nav > ul li > a.active,
 nav > ul li > details.active summary {
   font-weight: bold;
+  background-color: rgba(0,0,0,0.03);
 }
 
 nav ul summary {
   cursor: pointer;
+  padding: 8px 12px;
 }
 
 nav ul ul li > a {
