@@ -25,10 +25,10 @@ function headerHTML() {
 <!-- =============================================== -->
 
 <header>
-  <a href="/index.html" class="header-image">
+  <a href="/index.html">
     <img src="/images/GFD Logo.svg" alt="GreatFireDragon Logo" fetchpriority="high" />
   </a>
-  <div class="header-title">GreatFireDragon</div>
+  <h1>GreatFireDragon</h1>
 </header>
     `;
 }
