@@ -35,7 +35,7 @@
 
     <link href="/style.css" rel="stylesheet" />
     <link href="/fonts.css" rel="stylesheet" />
-    <script src="/layout.js"></script>
+    <script src="/layout.js" defer></script>
 
     <!-- Additional files: -->
     <link href="./index.css" rel="stylesheet" />
@@ -57,9 +57,8 @@
       fetchpriority="high"
     />
 
-    <script>
-      // Template generated with petrapixel's layout generator.
-      // I only kept this credit on the main page
+    <script defer>
+      // Thank you petrapixel for the layout generator! I loved it and it made me a huge headstart!
       console.log(
         "%cTemplate generated with petrapixel's layout generator: https://petrapixel.neocities.org/coding/layout-generator",
         "font-size: 14pt; color: #922a45; background: #ffd3ef"
@@ -137,7 +136,7 @@
             <div>
               <p>
                 Мне
-                <script>
+                <script defer>
                   document.write(
                     new Date().getFullYear() -
                       new Date("2002-06-10").getFullYear()
@@ -209,7 +208,7 @@
             <!-- Loading state or fallback -->
             <p>Загружаю...</p>
           </div>
-          <script src="./latest-video.js"></script>
+          <script src="./latest-video.js" defer></script>
         </section>
 
         <section>
@@ -217,7 +216,7 @@
           <br />
           <div id="telegram-feed">Загрузка постов...</div>
 
-          <script src="/telegram-rss-feed.js"></script>
+          <script src="/telegram-rss-feed.js" defer></script>
         </section>
       </main>
 
@@ -227,7 +226,5 @@
 
       <!-- Closing .layout: -->
     </div>
-
-    <!-- Add any additional Javascript code (<script></script>) here. -->
   </body>
 </html>
