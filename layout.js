@@ -52,7 +52,7 @@ function headerHTML() {
 
 <header>
   <a href="/index.html" class="header-image">
-    <img src="/images/GFD Logo.svg" alt="GreatFireDragon Logo" />
+    <img src="/images/GFD Logo.svg" alt="GreatFireDragon Logo" fetchpriority="high" />
   </a>
   <div class="header-title">GreatFireDragon</div>
 </header>
