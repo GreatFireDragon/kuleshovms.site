@@ -8,7 +8,8 @@
   --sidebar-background-color: #a39683;
 
   /* Text Colors: */
-  --text-color: #534c42;
+  /* --text-color: #534c42; */
+  --text-color: #3d3831;
   --sidebar-text-color: #3d3831;
   /* --link-color: #cc748a; was too bright i think */
   --link-color: #a4586b;
@@ -112,6 +113,7 @@ a,
 a:visited {
   color: var(--link-color);
   text-decoration: none;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
 a:hover,
@@ -240,12 +242,12 @@ aside img:hover {
 
 .sidebar-section ul a,
 .sidebar-section ol a {
-  color: color-mix(in srgb, var(--link-color) 80%, black);
+  color: color-mix(in srgb, var(--link-color) 90%, black);
 }
 
 .sidebar-section a:hover,
 .sidebar-section a:hover {
-  color: color-mix(in srgb, var(--link-color-hover) 80%, black);
+  color: color-mix(in srgb, var(--link-color-hover) 90%, black);
 }
 
 .not-on-mobile {
