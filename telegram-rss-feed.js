@@ -85,7 +85,7 @@ async function loadTelegramPosts() {
     if (allPosts.length > currentIndex) {
         const button = document.createElement("button");
         button.id = "tg-load-more-btn";
-        button.innerHTML = "Загрузить еще посты из моего <a href='https://t.me/gfd_channel'>телеграм канала</a>";
+        button.innerHTML = "Загрузить еще";
         button.onclick = renderPosts;
 
         container.parentNode.insertBefore(
