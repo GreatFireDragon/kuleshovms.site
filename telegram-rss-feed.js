@@ -4,7 +4,7 @@ async function loadTelegramPosts() {
     // Переменные для управления пагинацией
     let allPosts = []; // Здесь будем хранить все загруженные посты
     let currentIndex = 0; // Сколько постов уже показано
-    const postsStep = 5; // Сколько постов загружать за раз
+    const postsStep = 3; // Сколько постов загружать за раз
 
     // ПЕРЕД ПУШЕМ ПОМЕНЯТЬ НА БОЕВУЮ ССЫЛКУ!
     const url = "/rss/?action=display&bridge=TelegramBridge&username=gfd_channel&format=Json";

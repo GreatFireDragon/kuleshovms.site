@@ -16,7 +16,7 @@
 }
 
 #about-me-grid > div {
-  flex: 4; /* Equivalent to 4fr */
+  flex: 3; /* Equivalent to 4fr */
 }
 
 /* Image styling */
