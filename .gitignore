@@ -2,3 +2,5 @@
 .vscode/
 test-rss-feed.json
 test.py
+# Локальные настройки Claude (dev-сервер)
+.claude/
