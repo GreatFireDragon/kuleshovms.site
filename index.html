@@ -234,7 +234,10 @@
 
                   box.addEventListener("mousemove", function (e) {
                     var r = box.getBoundingClientRect();
-                    target = Math.min(100, Math.max(0, ((e.clientX - r.left) / r.width) * 100));
+                    var x = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
+                    // Нелинейно: почти всё время видна левая часть (лицо),
+                    // вправо уезжает только у самого правого края
+                    target = Math.pow(x, 4) * 100;
                     mode = "follow";
                     run();
                   });
@@ -507,7 +510,6 @@
                     />
                     «Ушёл из SEO, когда понял, что моя работа — уговаривать
                     робота показать мой текст другим роботам»
-                    <cite>— мои слова, дадада</cite>
                   </blockquote>
                 </div>
                 <img
