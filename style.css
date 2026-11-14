@@ -669,9 +669,6 @@ main h6 {
   to { transform: translateX(calc(-50% - 2px)); }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .ticker88-track { animation: none; }
-}
 
 /* Лента иконок технологий */
 .ticker88.tech-stack-icons .ticker88-track {
