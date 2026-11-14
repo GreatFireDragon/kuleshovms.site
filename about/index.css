@@ -364,3 +364,19 @@
   color: #c62828;
   text-decoration-thickness: 2px;
 }
+
+/* Картинки под пунктами опыта: широкие полосы (временные, заменятся) */
+.job-details li {
+  margin-bottom: 14px;
+}
+
+.task-pic {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 1;
+  object-fit: cover;
+  margin-top: 6px;
+  border-radius: var(--round-borders);
+  border: 2px solid var(--sidebar-background-color);
+  background: rgba(0, 0, 0, 0.08);
+}
