@@ -27,6 +27,14 @@
     />
     <link
       rel="preload"
+      as="image"
+      href="/images/me/me-portrait-540.webp"
+      imagesrcset="/images/me/me-portrait-360.webp 360w, /images/me/me-portrait-540.webp 540w, /images/me/me-portrait-900.webp 900w"
+      imagesizes="(max-width: 800px) 360px, 420px"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
       href="/Layout/sidebar.html"
       as="fetch"
       crossorigin="anonymous"
@@ -37,12 +45,13 @@
       rel="stylesheet"
     /> -->
 
-    <link href="/style.css?v=9" rel="stylesheet" />
+    <link href="/style.css?v=10" rel="stylesheet" />
     <link href="/fonts.css" rel="stylesheet" />
-    <script src="/layout.js?v=9" defer fetchpriority="high"></script>
+    <script src="/layout.js?v=10" defer fetchpriority="high"></script>
 
     <!-- Additional files: -->
-    <link href="/about/index.css?v=9" rel="stylesheet" />
+    <link href="/about/index.css?v=10" rel="stylesheet" />
+    <noscript><style>.lqip img { opacity: 1; }</style></noscript>
     <link
       rel="stylesheet"
       type="text/css"
@@ -182,14 +191,18 @@
           <div id="about-intro-grid">
             <!-- Колонка 1: Фото -->
             <div class="intro-photo-col">
-              <div class="pan-photo" id="hero-pan">
+              <div class="pan-photo lqip" id="hero-pan" style="background-image: url(data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAABQBQCdASoYABgAPu1ur1KppiQiqAgBMB2JZwDA3A+D8h6QVSDU2Nk+CVpCjNRd/zoOxUAA/t3XAfNuxS92QKZm8nlEK7YrdtuahtMD3YRiY65cUWDyztGNF9OURKvdgmXgYU1i5KRzAHJbjJ0GYRN/7k7mXQWVipd2LMyBOZkbC0RZs6CuAPD5fujeprr9zBGeZ16DRncwOnno32g2wAVjroANIAAA)">
                 <img
-                  src="/images/me/me-portrait.webp"
-                  alt="Михаил Кулешов за рабочим местом"
+                  src="/images/me/me-portrait-540.webp"
+                  srcset="/images/me/me-portrait-360.webp 360w, /images/me/me-portrait-540.webp 540w, /images/me/me-portrait-900.webp 900w"
+                  sizes="(max-width: 800px) 360px, 420px"
+                  alt="Михаил Кулешов, системный администратор, за рабочим местом"
                   title="Это я за работой"
-                  width="718"
-                  height="720"
+                  width="900"
+                  height="903"
                   fetchpriority="high"
+                  decoding="async"
+                  onload="this.classList.add('is-loaded')"
                 />
               </div>
               <script>
@@ -356,13 +369,17 @@
         <section id="work-photos">
           <h2>📸 Рабочие будни</h2>
           <figure class="work-photo">
-            <div class="zoom-frame">
+            <div class="zoom-frame lqip" style="background-image: url(data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAABwBQCdASoYABcAPu1gqU4ppSOiMBgMATAdiWMAxPk7gYBCnLlE+1b3jmR8rE46ZNoizG+AAP7vbbnG9+wEZJLdBthAdzY5CELQ1e76CFqBSOMFisABatKBPa47DXs0TESY7pvuVKSTvsm4Nazmyz8DcWDZlxoYw6GwMaFe+4UHzxFw9/WOKlStV6uUpwCmwXUirZN8SNbN7c8HirpwnrtOhCwAAA==)">
               <img
-                src="/images/me/me-at-desk.webp"
-                alt="Михаил за рабочим местом"
-                width="800"
-                height="758"
+                src="/images/me/me-at-desk-800.webp"
+                srcset="/images/me/me-at-desk-480.webp 480w, /images/me/me-at-desk-800.webp 800w, /images/me/me-at-desk-955.webp 955w"
+                sizes="(max-width: 800px) 100vw, 730px"
+                alt="Михаил Кулешов за рабочим местом в офисе"
+                width="955"
+                height="905"
                 loading="lazy"
+                decoding="async"
+                onload="this.classList.add('is-loaded')"
               />
             </div>
             <figcaption>Где-то тут сейчас <s class="oops">ложится</s> поднимается сервер</figcaption>
