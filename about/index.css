@@ -289,39 +289,23 @@
 /* =========================================
    Фото: рабочие будни
    ========================================= */
-.work-photos-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--padding);
+.work-photo {
+  margin: 0 auto;
+  max-width: 560px;
 }
 
-.work-photos-grid figure {
-  margin: 0;
-}
-
-.work-photos-grid img {
+.work-photo img {
   width: 100%;
   height: auto;
   display: block;
   border-radius: var(--round-borders);
   border: 4px solid var(--sidebar-background-color);
   box-shadow: 6px 6px 0px var(--sidebar-text-color);
-  transition: transform 0.2s;
 }
 
-.work-photos-grid img:hover {
-  transform: scale(1.02);
-}
-
-.work-photos-grid figcaption {
+.work-photo figcaption {
   text-align: center;
   font-style: italic;
   margin-top: 10px;
   color: var(--sidebar-text-color);
-}
-
-@media (max-width: 500px) {
-  .work-photos-grid {
-    grid-template-columns: 1fr;
-  }
 }
