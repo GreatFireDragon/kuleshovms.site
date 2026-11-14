@@ -635,3 +635,40 @@ main h6 {
 .rounded-image {
   border-radius: var(--round-borders);
 }
+
+/* Бесконечная лента 88x31 (см. makeTickers в layout.js) */
+.ticker88 {
+  overflow: hidden;
+  width: 100%;
+}
+
+.ticker88-track {
+  display: flex;
+  gap: 4px;
+  width: max-content;
+  animation: ticker88-scroll linear infinite;
+}
+
+.ticker88-track > * {
+  flex: 0 0 auto;
+  display: block;
+  line-height: 0;
+}
+
+.ticker88-track img {
+  width: 88px;
+  height: 31px;
+}
+
+.ticker88:hover .ticker88-track {
+  animation-play-state: paused;
+}
+
+@keyframes ticker88-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - 2px)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker88-track { animation: none; }
+}

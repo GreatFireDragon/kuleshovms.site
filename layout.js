@@ -47,6 +47,7 @@ function sidebarHTML_normal() {
       const randomPhotoId = Math.floor(Math.random() * 200) + 1;
       const modifiedHtmlContent = htmlContent.replace(/{{photo-id}}/g, randomPhotoId);
       document.querySelector('div.layout').insertAdjacentHTML('afterbegin', modifiedHtmlContent);
+      makeTickers();
     })
     .catch(error => {
       console.error('Error loading the sidebar:', error);
@@ -122,3 +123,33 @@ function getNesting() {
 
 
 
+
+
+/* Бесконечная лента 88x31 вместо <marquee>: содержимое дублируется,
+   лента сдвигается ровно на половину своей ширины и начинается заново —
+   разрыва в конце не видно. */
+function makeTickers() {
+  document.querySelectorAll('marquee.img88x31').forEach(function (mq) {
+    var items = Array.prototype.slice.call(mq.children);
+    var ticker = document.createElement('div');
+    ticker.className = 'ticker88';
+    var track = document.createElement('div');
+    track.className = 'ticker88-track';
+    // минимум 6 значков в половине ленты, чтобы она была шире сайдбара
+    var copies = Math.max(1, Math.ceil(6 / items.length));
+    for (var half = 0; half < 2; half++) {
+      for (var c = 0; c < copies; c++) {
+        items.forEach(function (el) {
+          var clone = el.cloneNode(true);
+          if (half === 1) clone.setAttribute('aria-hidden', 'true');
+          clone.querySelectorAll('img').forEach(function (i) { i.loading = 'eager'; });
+          if (clone.tagName === 'IMG') clone.loading = 'eager';
+          track.appendChild(clone);
+        });
+      }
+    }
+    track.style.animationDuration = (items.length * copies * 2.5) + 's';
+    ticker.appendChild(track);
+    mq.replaceWith(ticker);
+  });
+}
