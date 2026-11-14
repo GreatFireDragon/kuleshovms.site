@@ -26,9 +26,9 @@ function headerHTML() {
 
 <header>
   <a href="/index.html">
-    <img src="/images/GFD Logo.svg" alt="GreatFireDragon Logo" fetchpriority="high" />
+    <img src="/images/GFD Logo.svg" alt="KuleshovMS" fetchpriority="high" />
   </a>
-  <h1>GreatFireDragon</h1>
+  <h1>KuleshovMS</h1>
 </header>
     `;
 }
@@ -70,7 +70,7 @@ function footerHTML() {
       <!-- =============================================== -->
 
       <footer>
-           GreatFireDragon &copy; 2020-${currentYear} 
+           KuleshovMS &copy; 2020-${currentYear} 
       </footer>`;
 }
 
