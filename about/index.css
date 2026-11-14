@@ -373,10 +373,43 @@
 .task-pic {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 1;
+  aspect-ratio: 6 / 1;
   object-fit: cover;
+  object-position: 50% 30%;
   margin-top: 6px;
   border-radius: var(--round-borders);
   border: 2px solid var(--sidebar-background-color);
   background: rgba(0, 0, 0, 0.08);
+}
+
+/* Первая работа: текст + гифка рядом, видно сразу без спойлера */
+.job-intro-with-gif {
+  display: flex;
+  align-items: center;
+  gap: var(--padding);
+  margin-bottom: 10px;
+}
+
+.job-intro-with-gif p {
+  flex: 1;
+  margin: 0;
+}
+
+.job-gif {
+  flex: 0 0 auto;
+  width: 200px;
+  height: auto;
+  border-radius: var(--round-borders);
+  border: 3px solid var(--sidebar-background-color);
+  box-shadow: 4px 4px 0px var(--sidebar-text-color);
+}
+
+@media (max-width: 600px) {
+  .job-intro-with-gif {
+    flex-direction: column;
+  }
+  .job-gif {
+    width: 100%;
+    max-width: 245px;
+  }
 }
