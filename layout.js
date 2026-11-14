@@ -129,10 +129,10 @@ function getNesting() {
    лента сдвигается ровно на половину своей ширины и начинается заново —
    разрыва в конце не видно. */
 function makeTickers() {
-  document.querySelectorAll('marquee.img88x31').forEach(function (mq) {
+  document.querySelectorAll('marquee.img88x31, marquee.tech-stack-icons').forEach(function (mq) {
     var items = Array.prototype.slice.call(mq.children);
     var ticker = document.createElement('div');
-    ticker.className = 'ticker88';
+    ticker.className = 'ticker88' + (mq.classList.contains('tech-stack-icons') ? ' tech-stack-icons' : '');
     var track = document.createElement('div');
     track.className = 'ticker88-track';
     // минимум 6 значков в половине ленты, чтобы она была шире сайдбара
@@ -148,7 +148,7 @@ function makeTickers() {
         });
       }
     }
-    track.style.animationDuration = (items.length * copies * 2.5) + 's';
+    track.style.animationDuration = (items.length * copies * (mq.classList.contains('tech-stack-icons') ? 1.5 : 2.5)) + 's';
     ticker.appendChild(track);
     mq.replaceWith(ticker);
   });

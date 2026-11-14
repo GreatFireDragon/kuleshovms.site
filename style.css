@@ -672,3 +672,21 @@ main h6 {
 @media (prefers-reduced-motion: reduce) {
   .ticker88-track { animation: none; }
 }
+
+/* Лента иконок технологий */
+.ticker88.tech-stack-icons .ticker88-track {
+  gap: 16px;
+}
+
+.ticker88.tech-stack-icons .ticker88-track > * {
+  line-height: 1.4;
+}
+
+.ticker88.tech-stack-icons .ticker88-track {
+  animation-name: ticker-tech-scroll;
+}
+
+@keyframes ticker-tech-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - 8px)); }
+}
