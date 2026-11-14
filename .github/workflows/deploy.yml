@@ -1,0 +1,46 @@
+# Автодеплой сайта на хостинг IHC при пуше в main.
+# Нужен секрет репозитория IHC_PASSWORD (пароль от логина p1084059 на IHC).
+name: Deploy to IHC
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-ihc
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      SSHPASS: ${{ secrets.IHC_PASSWORD }}
+      REMOTE: p1084059@p1084059.ftp.ihc.ru
+      REMOTE_DIR: www/kuleshovms.site/
+    steps:
+      - name: Check secret
+        run: |
+          if [ -z "$SSHPASS" ]; then
+            echo "::error::Не задан секрет IHC_PASSWORD (Settings → Secrets and variables → Actions)"
+            exit 1
+          fi
+
+      - uses: actions/checkout@v4
+
+      - name: Install tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq sshpass rsync
+
+      - name: Upload site
+        run: |
+          sshpass -e rsync -rlvz --delete \
+            --exclude '.git/' \
+            --exclude '.github/' \
+            --exclude '.gitignore' \
+            --exclude '.vscode/' \
+            --exclude 'README.md' \
+            --exclude '.well-known/' \
+            --exclude '.htaccess' \
+            -e "ssh -o StrictHostKeyChecking=accept-new" \
+            ./ "$REMOTE:$REMOTE_DIR"
