@@ -388,7 +388,7 @@
   object-fit: cover;
   /* фокус на нужной части и лёгкий зум; при наведении — раскрывается */
   object-position: var(--pos);
-  transform: scale(1.15);
+  transform: scale(var(--zoom, 1.15));
   transform-origin: var(--pos);
   transition: transform 0.5s ease;
 }
@@ -477,4 +477,11 @@
 
 .job-quote-badge cite {
   clear: both;
+}
+
+/* «Выглядело это примерно так →» — прижато к гифке справа */
+.job-intro-text .to-gif {
+  text-align: right;
+  font-style: italic;
+  margin-top: -4px;
 }
