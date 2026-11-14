@@ -511,3 +511,45 @@
 .lqip img.is-loaded {
   opacity: 1;
 }
+
+/* =========================================
+   Телефон: меньше вложенных отступов в «Опыте работы»
+   ========================================= */
+@media (max-width: 600px) {
+  .job-card {
+    padding: 10px;
+  }
+
+  .job-header h3 {
+    font-size: 1.15em;
+  }
+
+  .job-intro-with-gif {
+    gap: 10px;
+  }
+
+  .job-gif {
+    width: 100%;
+    max-width: none;
+  }
+
+  .job-quote {
+    padding: 8px 10px;
+  }
+
+  .job-details ul {
+    padding: 10px 10px 10px 22px;
+  }
+
+  .job-details li {
+    margin-left: 0;
+  }
+
+  .task-frame {
+    height: 90px;
+  }
+
+  .task-frame:hover {
+    height: 220px;
+  }
+}

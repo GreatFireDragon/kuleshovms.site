@@ -593,7 +593,8 @@ main h6 {
     font-size: 0.9em;
 
     display: grid;
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 12px;
     grid-auto-flow: dense;
   }
 
@@ -686,4 +687,16 @@ main h6 {
 @keyframes ticker-tech-scroll {
   from { transform: translateX(0); }
   to { transform: translateX(calc(-50% - 8px)); }
+}
+
+/* Телефон: ленты не распирают колонки */
+.sidebar-section,
+.ticker88 {
+  min-width: 0;
+}
+
+@media (max-width: 600px) {
+  main > section {
+    padding: 12px;
+  }
 }
