@@ -485,3 +485,9 @@
   font-style: italic;
   margin-top: -4px;
 }
+
+.pre-ai-note {
+  font-style: italic;
+  color: var(--sidebar-text-color);
+  margin: 0 0 var(--padding);
+}
