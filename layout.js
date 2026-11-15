@@ -33,7 +33,7 @@ function headerHTML() {
 
 function sidebarHTML_normal() {
   // тот же адрес, что в <link rel="preload"> страницы — иначе предзагрузка пропадает зря
-  let fileUrl = '/Layout/sidebar.html?v=21';
+  let fileUrl = '/Layout/sidebar.html?v=22';
 
   fetch(fileUrl)
     .then(response => {

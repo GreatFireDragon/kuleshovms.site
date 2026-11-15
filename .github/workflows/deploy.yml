@@ -41,6 +41,6 @@ jobs:
             --exclude '.vscode/' \
             --exclude 'README.md' \
             --exclude '.well-known/' \
-            --exclude '.htaccess' \
+            --exclude '/.htaccess' \
             -e "ssh -o StrictHostKeyChecking=accept-new" \
             ./ "$REMOTE:$REMOTE_DIR"

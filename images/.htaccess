@@ -1,0 +1,8 @@
+# Кэш картинок/шрифтов/PDF на 30 дней (при замене файла давать новое имя)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 30 days"
+</IfModule>
+<IfModule mod_headers.c>
+  Header set Cache-Control "public, max-age=2592000"
+</IfModule>
