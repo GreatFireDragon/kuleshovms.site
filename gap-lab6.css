@@ -114,3 +114,29 @@
 .cctv-wall .rec { position: absolute; right: 8px; top: 5px; color: #ff3b30; font: bold 10px "Courier New", monospace; animation: led 1s steps(1) infinite; z-index: 2; }
 .cctv-wall .ts { position: absolute; right: 8px; bottom: 5px; color: #e8ffe8; font: 9px "Courier New", monospace; text-shadow: 0 0 3px #000; z-index: 2; }
 .task-frame.cctv-frame:hover { height: 190px; }
+
+/* ===== камеры v2: всё лежит, изредка что-то видно ===== */
+.cctv-wall .cam .scene { position: absolute; inset: 0; display: none; }
+.cctv-wall .cam:not(.lost) .scene { display: block; }
+.cctv-wall .cam:not(.lost) .nosig { display: none; }
+.cctv-wall .cam:not(.lost) { animation: cam-on 0.15s steps(2); }
+@keyframes cam-on { 0% { filter: brightness(3) grayscale(1); } }
+.scene span { position: absolute; bottom: 6px; font-size: 26px; line-height: 1; }
+.scene .cap { left: 4px; right: 4px; bottom: auto; top: 16px; font: bold 9px "Courier New", monospace; color: #ffeb3b; text-shadow: 0 0 3px #000; }
+.scene .bob { animation: cam-bob 0.35s ease-in-out infinite alternate; }
+@keyframes cam-bob { to { transform: translateY(-6px) rotate(8deg); } }
+.scene .run { animation: walk 1.4s linear infinite; }
+.scene .zz { font-size: 12px; animation: cam-zz 1s ease-out infinite; }
+@keyframes cam-zz { to { transform: translate(8px, -14px); opacity: 0; } }
+
+/* ===== «Помощь всему дивизиону»: чат, который заваливают ===== */
+.task-frame.chat-frame { background: #17212b; }
+.chat-flood { height: 100%; display: flex; flex-direction: column; font: 11px/1.3 Arial, sans-serif; color: #e8eef4; }
+.cf-head { padding: 4px 8px; background: #232e3c; font-weight: bold; }
+.cf-badge { display: inline-block; min-width: 16px; padding: 0 5px; margin-left: 4px; border-radius: 8px; background: #e53935; color: #fff; text-align: center; }
+.cf-list { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; gap: 3px; padding: 4px 8px; overflow: hidden; }
+.cf-msg { align-self: flex-start; max-width: 85%; padding: 3px 8px; border-radius: 8px 8px 8px 2px; background: #2b5278; animation: cf-in 0.25s ease-out; }
+.cf-msg b { display: block; font-size: 9px; color: #7fc4ff; }
+.cf-msg.me { align-self: flex-end; background: #3d6b38; border-radius: 8px 8px 2px 8px; }
+@keyframes cf-in { from { transform: translateY(10px); opacity: 0; } }
+.task-frame.chat-frame:hover { height: 190px; }
