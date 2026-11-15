@@ -26,3 +26,10 @@
   outline: 3px solid var(--link-color);
   outline-offset: 2px;
 }
+
+.tech-name {
+  font-size: 0.6em;
+  font-weight: normal;
+  opacity: 0.6;
+  margin-left: 6px;
+}
