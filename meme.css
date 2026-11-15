@@ -86,3 +86,7 @@
 /* сплошной текст во всю ширину */
 .meme-crawl { left: 2%; right: 2%; }
 .meme-crawl p { text-align: justify; text-align-last: center; hyphens: auto; }
+
+/* REC поверх титров, титры гаснут у верхнего края */
+.meme-rec { z-index: 5; background: rgba(0, 0, 0, 0.85); }
+.meme-subs { -webkit-mask-image: linear-gradient(transparent 0, #000 18%); mask-image: linear-gradient(transparent 0, #000 18%); }

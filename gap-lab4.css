@@ -199,10 +199,10 @@ html.degauss body { animation: degauss 0.9s ease-out; }
 .gl-sticky3 .st-msg { font: 12px "Courier New", monospace; color: var(--link-color); }
 
 /* ===== Футер: Norton Commander ===== */
-.ft-nc { display: flex; flex-wrap: wrap; justify-content: center; gap: 2px; padding: 3px; background: #000; font: 14px "Courier New", monospace; border-radius: 3px; }
+.ft-nc { display: flex; flex-wrap: wrap; justify-content: center; gap: 2px; padding: 3px; background: #3d3831; font: 14px "Courier New", monospace; border-radius: var(--round-borders, 3px); }
 .ft-nc a { display: inline-flex; align-items: stretch; text-decoration: none; transition: transform 0.08s; }
-.ft-nc a b { padding: 2px 4px 2px 6px; background: #000; color: #fff; }
-.ft-nc a span { padding: 2px 10px; background: #00a8a8; color: #000; }
-.ft-nc a:hover span, .ft-nc a.pressed span { background: #ffff55; }
+.ft-nc a b { padding: 2px 4px 2px 6px; background: #3d3831; color: #e8dcc6; }
+.ft-nc a span { padding: 2px 10px; background: #a39683; color: #2a241d; }
+.ft-nc a:hover span, .ft-nc a.pressed span { background: var(--link-color, #a4586b); color: #fff; }
 .ft-nc a.pressed { transform: translateY(2px); }
 .ft-nc-hint { display: block; margin-top: 4px; font: 11px "Courier New", monospace; opacity: 0.7; }
