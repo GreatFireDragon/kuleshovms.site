@@ -26,7 +26,7 @@ function headerHTML() {
 
 <header>
   <a href="/index.html">
-    <img src="/images/GFD Logo.svg" alt="KuleshovMS" fetchpriority="high" />
+    <img src="/images/me/avatar-pixel.png" alt="KuleshovMS" width="70" height="70" class="pixel-avatar" fetchpriority="high" />
   </a>
   <h1>KuleshovMS</h1>
 </header>

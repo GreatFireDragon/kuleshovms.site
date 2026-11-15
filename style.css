@@ -700,3 +700,9 @@ main h6 {
     padding: 12px;
   }
 }
+
+/* Пиксельный аватар в шапке — без размытия при масштабе */
+header img.pixel-avatar {
+  image-rendering: pixelated;
+  border-radius: 8px;
+}
