@@ -21,11 +21,15 @@
   window.GAP_TYPER = function (el, lines, speed) { typer(el, lines, speed); };
 
   var variants = Array.prototype.slice.call(pool.content.querySelectorAll(".gap-v"));
+  // «Так, падажжи» показываем всегда, в первом слоте; остальные идут по кругу
+  var ALWAYS = ["padazhi"];
+  var pinned = variants.filter(function (x) { return ALWAYS.indexOf(x.dataset.v) > -1; });
+  variants = variants.filter(function (x) { return ALWAYS.indexOf(x.dataset.v) < 0; });
   // по порядку по кругу: каждая загрузка продолжает с места, где остановилась прошлая
   var POS_KEY = "gapPos", pos = 0;
   try { pos = (+localStorage.getItem(POS_KEY) || 0) % variants.length; } catch (e) {}
   variants = variants.slice(pos).concat(variants.slice(0, pos));
-  try { localStorage.setItem(POS_KEY, String((pos + slots.length) % variants.length)); } catch (e) {}
+  try { localStorage.setItem(POS_KEY, String((pos + slots.length - ALWAYS.length) % variants.length)); } catch (e) {}
   // ?gap=loading,rack — принудительно поставить эти варианты первыми (для проверки)
   var force = (location.search.match(/[?&]gap=([\w,]+)/) || [])[1];
   if (force) {
@@ -34,6 +38,9 @@
       if (idx > -1) variants.unshift(variants.splice(idx, 1)[0]);
     });
   }
+
+  if (!force) variants = pinned.concat(variants);
+  else variants = variants.concat(pinned);
 
   // консольные вставки — не больше одной на странице
   var CONSOLE = window.GAP_CONSOLE || [];
