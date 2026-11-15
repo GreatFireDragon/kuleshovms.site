@@ -2,7 +2,7 @@
 // общий «салют» за победу. Подключается после gap-lab4.js и gap-interact2.js.
 (function () {
   var X = window.GAP_EXTRA;
-  var DROP = ["tetris", "tamagotchi", "cat", "captcha", "bsod", "dialup", "win98", "jira"];
+  var DROP = ["tetris", "tamagotchi", "cat", "captcha", "bsod", "dialup", "win98", "jira", "wifi"];
   for (var i = X.length - 1; i >= 0; i--) if (DROP.indexOf(X[i].v) > -1) X.splice(i, 1);
 
   function rnd(a, b) { return a + Math.random() * (b - a); }
@@ -231,8 +231,56 @@
       });
     });
 
+
+  // ===== «Так, падажжи, ёбана»: мелкий текст сценария, в конце — крупно =====
+  var PADAZHI = [
+    "Сервак пилим бля, шкаф собрал, коммутаторы настроил, SFP воткнул, роутер заводим бля, сетевикам написал, VLAN-ы прописал, DHCP поднял, камеры по портам раскидал, пинг есть, трассировка есть, мониторинг зелёный, бэкап настроил, документацию даже написал бля, всё работает, иду домой…",
+    "Обновление накатил, перезагрузил, сервисы поднялись, логи чистые, мониторинг молчит, пользователи молчат, телефон молчит, начальник молчит, все молчат, даже принтер молчит бля, никто не звонит уже час, тишина полная, красота…",
+    "Кабели уложил, стяжечки подрезал, маркировку наклеил, патч-панель подписал, схему нарисовал, фото сделал, в чат скинул, все лайкнули, иду пить кофе, захожу обратно в серверную, а там кто-то ноутбук подключает прямо из середины бля…",
+    "Пароль сменили, политики раскатили, двухфакторку включили, доступы раздали, инструкцию написали, всем разослали, все прочитали, все поняли, все подтвердили, вопросов ноль, звонков ноль, тикетов ноль…",
+    "Перевёз сервер в новую стойку, подключил, включил, загрузился, сеть есть, диски есть, RAID зелёный, виртуалки стартанули, сайт открывается, почта ходит, база отвечает, всё быстрее чем было, вообще ни одной ошибки…"
+  ];
+  put("padazhi", "так, падажжи",
+    '<div class="gl-padazhi"><img src="/images/work/padazhi.webp" alt="Так, падажжи, ёбана" width="300" height="298" loading="lazy" /><div class="pz-text"><p class="pz-flow"></p><b class="pz-punch">ТАК, ПАДАЖЖИ, ЁБАНА</b></div></div>',
+    function (el) {
+      var flow = el.querySelector(".pz-flow"), k = Math.floor(rnd(0, PADAZHI.length));
+      function play() {
+        if (!el.isConnected) return;
+        var text = PADAZHI[k++ % PADAZHI.length], i = 0;
+        el.classList.remove("punch"); flow.textContent = "";
+        (function type() {
+          if (!el.isConnected) return;
+          if (i <= text.length) { flow.textContent = text.slice(0, i); i += 2; return setTimeout(type, 28); }
+          setTimeout(function () { el.classList.add("punch"); setTimeout(play, 4200); }, 500);
+        })();
+      }
+      play();
+    });
+
+  // ===== «Нахуйблять»: монолог сисадмина бегущими субтитрами =====
+  var RANT = [
+    "Блять, вот свитчи, патч-корды нахуй, блять, нахуй, блять, нахуй,",
+    "серверы нахуй, блять, нахуй, ИБП нахуй, блять, нахуй.",
+    "А не эта хуета нахуй, блять, обновления ёбаные нахуй,",
+    "которые вы накатили нахуй, блять, в пятницу, блять.",
+    "Требований дохуя, а доступов нихуя нахуй нету,",
+    "нахуйблятьнахуйблятьнахуйблятьнахуй, пошли нахуй."
+  ];
+  put("rant", "нахуйблять (18+)",
+    '<div class="gl-rant"><span class="rant-rec">🔴 REC</span><div class="rant-line"></div><small class="rant-age">18+</small></div>',
+    function (el) {
+      var line = el.querySelector(".rant-line"), k = 0;
+      (function next() {
+        if (!el.isConnected) return;
+        line.classList.remove("show"); void line.offsetWidth;
+        line.textContent = RANT[k++ % RANT.length];
+        line.classList.add("show");
+        setTimeout(next, k % RANT.length === 0 ? 4200 : 2600);
+      })();
+    });
+
   window.GAP_STATUS = {
-    approved: ["log", "news", "badges", "brands", "uptime", "term", "loading", "leds", "bios", "ping", "matrix", "ports", "clippy", "rj45", "dvd", "traceroute", "wifi", "htop", "speedtest", "morse", "rack", "cable", "packets", "snake", "crtpower", "sticky"],
+    approved: ["log", "news", "badges", "brands", "uptime", "term", "loading", "leds", "bios", "ping", "matrix", "ports", "clippy", "rj45", "dvd", "traceroute", "htop", "speedtest", "morse", "rack", "cable", "packets", "snake", "crtpower", "sticky", "padazhi", "rant"],
     review: []
   };
 })();

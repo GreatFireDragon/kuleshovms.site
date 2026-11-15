@@ -53,3 +53,23 @@
 .gl-crt2 .knob { width: 22px; height: 22px; font-size: 11px; }
 .gl-crt2 .pwr-btn { width: 32px; height: 32px; font-size: 15px; }
 .gl-crt2 .crt-msg { width: auto; flex: 1 0 100%; font-size: 11px; margin-top: -4px; }
+
+/* ===== Так, падажжи ===== */
+.gl-padazhi { align-items: center; gap: 14px; padding: 8px 12px; border-radius: var(--round-borders); background: #fff; border: 2px solid #222; color: #111; }
+.gl-padazhi img { flex: 0 0 auto; width: 130px; height: auto; }
+.gl-padazhi .pz-text { position: relative; flex: 1; min-height: 120px; display: flex; flex-direction: column; justify-content: center; }
+.gl-padazhi .pz-flow { margin: 0; font: 11px/1.35 "Courier New", monospace; color: #333; transition: opacity 0.3s; }
+.gl-padazhi .pz-punch { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%) scale(0.4); text-align: center; font: 900 clamp(20px, 3.4vw, 34px) Impact, "Arial Black", sans-serif; letter-spacing: 1px; color: #111; opacity: 0; pointer-events: none; }
+.gl-padazhi.punch .pz-flow { opacity: 0.15; }
+.gl-padazhi.punch .pz-punch { animation: pz-punch 0.35s ease-out forwards; }
+.gl-padazhi.punch img { animation: shake 0.1s 6; }
+@keyframes pz-punch { to { transform: translateY(-50%) scale(1); opacity: 1; } }
+@media (max-width: 600px) { .gl-padazhi img { width: 90px; } }
+
+/* ===== Нахуйблять ===== */
+.gl-rant { position: relative; align-items: center; justify-content: center; min-height: 64px; padding: 10px 50px; border-radius: var(--round-borders); background: #000; overflow: hidden; }
+.rant-rec { position: absolute; left: 8px; top: 6px; color: #ff3b30; font: bold 10px "Courier New", monospace; animation: led 1s steps(1) infinite; }
+.rant-age { position: absolute; right: 8px; top: 6px; padding: 0 4px; border: 1px solid #ff3b30; color: #ff3b30; font: bold 10px "Courier New", monospace; }
+.rant-line { color: #ffeb3b; text-align: center; font: 900 clamp(14px, 2.2vw, 20px) "Arial Black", Impact, sans-serif; text-shadow: 2px 2px 0 #000, -1px -1px 0 #000; opacity: 0; }
+.rant-line.show { animation: rant-in 2.4s ease forwards; }
+@keyframes rant-in { 0% { opacity: 0; transform: translateY(8px); } 10%, 85% { opacity: 1; transform: none; } 100% { opacity: 0; } }

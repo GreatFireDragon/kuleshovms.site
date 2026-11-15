@@ -57,3 +57,23 @@
 @keyframes meme-shake { 25% { translate: -3px 2px; } 75% { translate: 3px -2px; } }
 .meme-final img { animation: meme-shake 0.06s infinite; filter: saturate(1.6) contrast(1.2); }
 .meme-final .meme-subs { color: #ff3b30; font-size: clamp(16px, 3vw, 28px); }
+
+/* ===== режим «титры» ===== */
+.meme-subs { inset: 0; bottom: 0; overflow: hidden; }
+.meme-crawl {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  top: 100%;
+  opacity: 0;
+}
+.meme-crawl p {
+  margin: 0 0 0.6em;
+  color: #ffeb3b;
+  font: 900 clamp(18px, 3.4vw, 34px)/1.2 Impact, "Arial Black", sans-serif;
+  text-align: center;
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 0 10px #000;
+}
+.meme-crawl.go { opacity: 1; animation: meme-crawl 34s linear forwards; }
+@keyframes meme-crawl { from { transform: translateY(0); } to { transform: translateY(var(--dist, -1500px)); } }
+.meme-on img { filter: brightness(0.55); }

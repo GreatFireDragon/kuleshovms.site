@@ -29,24 +29,25 @@
       '<button type="button" class="meme-play">▶ Как я собираю сервер <small>18+, со звуком в голове</small></button>');
     var subs = frame.querySelector(".meme-subs"), btn = frame.querySelector(".meme-play"), playing = false;
 
+    // титры: весь текст крупно едет снизу вверх, как в конце фильма
+    var crawl = document.createElement("div");
+    crawl.className = "meme-crawl";
+    crawl.innerHTML = LINES.map(function (l) { return "<p>" + l + "</p>"; }).join("");
+    subs.appendChild(crawl);
     btn.addEventListener("click", function () {
       if (playing) return;
       playing = true;
       frame.classList.add("meme-on");
-      var i = 0;
-      (function next() {
-        if (i >= LINES.length) {
-          setTimeout(function () { subs.textContent = ""; frame.classList.remove("meme-on", "meme-shake", "meme-final"); playing = false; }, 2200);
-          return;
-        }
-        var line = LINES[i++];
-        subs.textContent = line;
-        subs.classList.remove("pop"); void subs.offsetWidth; subs.classList.add("pop");
-        var mat = (line.match(/нахуй|блять|ёбан/g) || []).length;
-        frame.classList.toggle("meme-shake", mat >= 3);
-        frame.classList.toggle("meme-final", i === LINES.length);
-        setTimeout(next, Math.max(1400, line.length * 55));
-      })();
+      crawl.style.animation = "none"; void crawl.offsetWidth;
+      crawl.style.animation = "";
+      crawl.style.setProperty("--dist", -(crawl.offsetHeight + frame.offsetHeight) + "px");
+      crawl.classList.add("go");
+      crawl.addEventListener("animationend", function done() {
+        crawl.removeEventListener("animationend", done);
+        crawl.classList.remove("go");
+        frame.classList.remove("meme-on");
+        playing = false;
+      });
     });
   }
 

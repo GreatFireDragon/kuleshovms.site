@@ -21,11 +21,11 @@
   window.GAP_TYPER = function (el, lines, speed) { typer(el, lines, speed); };
 
   var variants = Array.prototype.slice.call(pool.content.querySelectorAll(".gap-v"));
-  // перемешать (Фишер–Йетс)
-  for (var i = variants.length - 1; i > 0; i--) {
-    var j = Math.floor(Math.random() * (i + 1));
-    var t = variants[i]; variants[i] = variants[j]; variants[j] = t;
-  }
+  // по порядку по кругу: каждая загрузка продолжает с места, где остановилась прошлая
+  var POS_KEY = "gapPos", pos = 0;
+  try { pos = (+localStorage.getItem(POS_KEY) || 0) % variants.length; } catch (e) {}
+  variants = variants.slice(pos).concat(variants.slice(0, pos));
+  try { localStorage.setItem(POS_KEY, String((pos + slots.length) % variants.length)); } catch (e) {}
   // ?gap=loading,rack — принудительно поставить эти варианты первыми (для проверки)
   var force = (location.search.match(/[?&]gap=([\w,]+)/) || [])[1];
   if (force) {
