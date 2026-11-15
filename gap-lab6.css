@@ -73,3 +73,8 @@
 .rant-line { color: #ffeb3b; text-align: center; font: 900 clamp(14px, 2.2vw, 20px) "Arial Black", Impact, sans-serif; text-shadow: 2px 2px 0 #000, -1px -1px 0 #000; opacity: 0; }
 .rant-line.show { animation: rant-in 2.4s ease forwards; }
 @keyframes rant-in { 0% { opacity: 0; transform: translateY(8px); } 10%, 85% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+
+/* два спойлера DNS в одну строку; открытый занимает всю ширину */
+.job-spoilers { display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-start; }
+.job-spoilers > details { margin: 0; }
+.job-spoilers > details[open] { flex-basis: 100%; order: 2; }
