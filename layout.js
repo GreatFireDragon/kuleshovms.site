@@ -33,7 +33,7 @@ function headerHTML() {
 
 function sidebarHTML_normal() {
   // тот же адрес, что в <link rel="preload"> страницы — иначе предзагрузка пропадает зря
-  let fileUrl = '/Layout/sidebar.html?v=20';
+  let fileUrl = '/Layout/sidebar.html?v=21';
 
   fetch(fileUrl)
     .then(response => {
@@ -43,9 +43,7 @@ function sidebarHTML_normal() {
       return response.text();
     })
     .then(htmlContent => {
-      const randomPhotoId = Math.floor(Math.random() * 200) + 1;
-      const modifiedHtmlContent = htmlContent.replace(/{{photo-id}}/g, randomPhotoId);
-      document.querySelector('div.layout').insertAdjacentHTML('afterbegin', modifiedHtmlContent);
+      document.querySelector('div.layout').insertAdjacentHTML('afterbegin', htmlContent);
       makeTickers();
     })
     .catch(error => {
