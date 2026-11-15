@@ -596,22 +596,12 @@
   }
 }
 
-/* Карта дивизиона и список своих сервисов */
-.division-map {
-  margin: 12px 0;
-  text-align: center;
-}
-
-.division-map img {
-  width: 100%;
-  max-width: 520px;
+/* Маленькая карта двух областей рядом с текстом */
+img.division-map {
+  flex: 0 0 auto;
+  width: 110px;
   height: auto;
-}
-
-.division-map figcaption {
-  font-style: italic;
-  font-size: 0.85em;
-  color: var(--sidebar-text-color);
+  filter: drop-shadow(3px 3px 0 var(--sidebar-background-color));
 }
 
 .my-services {
@@ -638,4 +628,11 @@
 
 .my-services a.more {
   border-style: dashed;
+}
+
+@media (max-width: 600px) {
+  img.division-map {
+    align-self: center;
+    width: 90px;
+  }
 }
