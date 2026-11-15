@@ -35,7 +35,7 @@
     />
     <link
       rel="preload"
-      href="/Layout/sidebar.html?v=16"
+      href="/Layout/sidebar.html?v=17"
       as="fetch"
       crossorigin="anonymous"
       fetchpriority="high"
@@ -45,12 +45,12 @@
       rel="stylesheet"
     /> -->
 
-    <link href="/style.css?v=16" rel="stylesheet" />
+    <link href="/style.css?v=17" rel="stylesheet" />
     <link href="/fonts.css" rel="stylesheet" />
-    <script src="/layout.js?v=16" defer fetchpriority="high"></script>
+    <script src="/layout.js?v=17" defer fetchpriority="high"></script>
 
     <!-- Additional files: -->
-    <link href="/about/index.css?v=16" rel="stylesheet" />
+    <link href="/about/index.css?v=17" rel="stylesheet" />
     <noscript><style>.lqip img { opacity: 1; }</style></noscript>
     <link
       rel="stylesheet"
@@ -516,7 +516,7 @@
               <div class="job-intro-with-gif">
                 <p>
                   На мне IT-инфраструктура центрального дивизиона DNS: сети,
-                  серверы, кассы и видеонаблюдение в ~350 магазинах Москвы,
+                  серверы, кассы и видеонаблюдение в <b class="big-num">350+</b> магазинах Москвы,
                   Московской и Тверской областей, на складах и в
                   распределительном центре. Чтобы такой масштаб не горел,
                   пишу собственные сервисы для всего дивизиона.
@@ -532,23 +532,48 @@
                 />
               </div>
 
-              <div class="job-stats">
-                <div class="stat"><b>350+</b><span>магазинов</span></div>
-                <div class="stat"><b>3 + РЦ</b><span>склада и распред. центр</span></div>
-                <div class="stat"><b>2</b><span>области + Москва</span></div>
-              </div>
-
-
-              <div class="my-services">
-                <b>🛠️ Свои сервисы в проде:</b>
-                <a href="/projects/#switchcontrol">SwitchControl</a>
-                <a href="/projects/#branch-portal">Портал управляющих</a>
-                <a href="/projects/#kkt-control">KKT Control</a>
-                <a href="/projects/#tvip-control">TVIP Control</a>
-                <a href="/projects/#web-awacs">Web Awacs</a>
-                <a href="/projects/#helpers">Zabbix + MobaXterm</a>
-                <a class="more" href="/projects/">подробнее →</a>
-              </div>
+              <details class="job-details job-mega">
+                <summary>🚀 Сделал сам в эпоху ИИ: 5 сервисов в проде</summary>
+                <div class="mega-body">
+                  <div class="mega-badges">
+                    <img src="/images/88x31/ai/slots.gif" alt="One more prompt: ship, ship, bug" title="Ещё один промпт…" width="88" height="31" />
+                    <img src="/images/88x31/ai/vibecard.gif" alt="Vibe now, pay later" title="Технический долг под 0%" width="88" height="31" />
+                  </div>
+                  <p class="mega-lead">
+                    Раньше под такое собирали команду разработчиков. Я сделал
+                    сам, в одиночку, вместе с основной работой — и этим
+                    пользуется весь дивизион.
+                  </p>
+                  <div class="svc-grid">
+                  <a class="svc-card" href="/projects/#switchcontrol">
+                    <div class="svc-shot">скриншот скоро</div>
+                    <b>SwitchControl</b>
+                    <span>Панель для коммутаторов всех филиалов: найти устройство по MAC, настроить порт в пару кликов.</span>
+                  </a>
+                  <a class="svc-card" href="/projects/#branch-portal">
+                    <div class="svc-shot">скриншот скоро</div>
+                    <b>Портал управляющих</b>
+                    <span>Управляющий магазина сам видит, что с его сетью и оборудованием, без звонка в IT.</span>
+                  </a>
+                  <a class="svc-card" href="/projects/#tvip-control">
+                    <div class="svc-shot">скриншот скоро</div>
+                    <b>TVIP Control</b>
+                    <span>TV-приставки во всех магазинах настраиваются централизованно.</span>
+                  </a>
+                  <a class="svc-card" href="/projects/#web-awacs">
+                    <div class="svc-shot">скриншот скоро</div>
+                    <b>Web Awacs</b>
+                    <span>Камеры видеонаблюдения прямо в браузере и мониторинг, какие живы.</span>
+                  </a>
+                  <a class="svc-card" href="/projects/#helpers">
+                    <div class="svc-shot">скриншот скоро</div>
+                    <b>Zabbix + MobaXterm</b>
+                    <span>Филиал целиком в мониторинг одной формой, сессии ко всем железкам собираются сами.</span>
+                  </a>
+                  </div>
+                  <p class="mega-more"><a href="/projects/">Подробнее о каждом →</a></p>
+                </div>
+              </details>
 
               <details class="job-details">
                 <summary>Подробнее о задачах</summary>
@@ -560,10 +585,6 @@
                   <li>
                     📹 <b>Видеонаблюдение и кассы:</b> камеры, PoE, face-detect,
                     ККТ и «Честный знак». Ошибка 99 — это не лото, это опять COM-порт.
-                  </li>
-                  <li>
-                    🤖 <b>Автоматизация:</b> всё, что делается руками больше двух
-                    раз, превращается в сервис. Список выше.
                   </li>
                 </ul>
               </details>

@@ -636,3 +636,114 @@ img.division-map {
     width: 90px;
   }
 }
+
+/* Число в тексте */
+.big-num {
+  font-family: var(--heading-font);
+  font-size: 1.35em;
+  color: var(--link-color);
+}
+
+/* «Мега-достижение»: спойлер со своими сервисами */
+.job-mega {
+  margin-bottom: 10px;
+}
+
+.job-mega summary {
+  background: #f6dc8c;
+  border: 2px solid #d99a2b;
+  color: #5a3e00;
+  font-size: 1em;
+}
+
+.job-mega:not([open]) summary:hover {
+  background: #d99a2b;
+  border-color: #d99a2b;
+  color: #fff;
+}
+
+.job-mega[open] summary {
+  background: #f6dc8c;
+  border: 2px solid #d99a2b;
+  border-bottom: none;
+}
+
+.mega-body {
+  padding: 12px;
+  border: 2px solid #d99a2b;
+  border-radius: 0 var(--round-borders) var(--round-borders) var(--round-borders);
+  background: rgba(246, 220, 140, 0.18);
+}
+
+.mega-lead {
+  margin: 0 0 12px;
+  font-style: italic;
+}
+
+.svc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.svc-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+  border-radius: var(--round-borders);
+  border: 1.5px solid var(--sidebar-background-color);
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--text-color);
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.svc-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 3px 3px 0 var(--sidebar-text-color);
+  text-decoration: none;
+}
+
+.svc-card b {
+  color: var(--link-color);
+  font-family: var(--heading-font);
+}
+
+.svc-card span {
+  font-size: 0.85em;
+  line-height: 1.4;
+}
+
+.svc-shot {
+  aspect-ratio: 16 / 9;
+  display: grid;
+  place-items: center;
+  border-radius: 4px;
+  border: 1.5px dashed var(--sidebar-background-color);
+  font-size: 0.8em;
+  color: var(--sidebar-text-color);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.mega-more {
+  margin: 10px 0 0;
+  text-align: right;
+}
+
+.mega-badges {
+  float: right;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0 0 6px 10px;
+}
+
+.mega-badges img {
+  width: 88px;
+  height: 31px;
+}
+
+.svc-grid {
+  clear: both;
+}
