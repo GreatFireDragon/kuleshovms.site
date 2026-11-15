@@ -140,3 +140,7 @@
 .cf-msg.me { align-self: flex-end; background: #3d6b38; border-radius: 8px 8px 2px 8px; }
 @keyframes cf-in { from { transform: translateY(10px); opacity: 0; } }
 .task-frame.chat-frame:hover { height: 190px; }
+
+/* ===== вставки-разбивки приглушены, чтобы не отвлекали; при наведении — в полную силу ===== */
+.gap-slot { opacity: 0.4; transition: opacity 0.35s ease; }
+.gap-slot:hover, .gap-slot:focus-within { opacity: 1; }
