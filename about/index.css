@@ -761,3 +761,10 @@ img.lqip-bg {
   background-position: var(--pos, 50% 50%);
   background-repeat: no-repeat;
 }
+
+/* Пункты в «Подробнее о задачах»: без маркеров и отступа слева — эмодзи и так работает как маркер */
+.job-details ul { list-style: none; padding: 12px; }
+.job-details li { margin-left: 0; }
+@media (max-width: 600px) {
+  .job-details ul { padding: 10px 8px; }
+}
