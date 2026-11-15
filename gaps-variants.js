@@ -445,13 +445,13 @@
 
   // ===== Кабель: много пакетов, цвет натяжения, рвётся навсегда =====
   I.cable = function (el) {
-    el.innerHTML = '<canvas class="rope" height="90"></canvas><em class="rope-msg">👆 схвати кабель и тяни. Сильно.</em>';
+    el.innerHTML = '<canvas class="rope" height="46"></canvas><em class="rope-msg">👆 схвати кабель и тяни. Сильно.</em>';
     el.classList.add("rope-wrap");
     var c = el.querySelector("canvas"), ctx = c.getContext("2d"), msg = el.querySelector(".rope-msg");
     var N = 28, pts = [], cons = [], grab = -1, broken = false, sparks = [], packets = [], W;
     W = c.width = c.clientWidth || 600;
-    for (var i = 0; i < N; i++) { var x = 24 + (W - 48) * i / (N - 1); pts.push({ x: x, y: 26, px: x, py: 26 }); }
-    var seg = (W - 48) / (N - 1) * 1.012;
+    for (var i = 0; i < N; i++) { var x = 24 + (W - 48) * i / (N - 1); pts.push({ x: x, y: 14, px: x, py: 14 }); }
+    var seg = (W - 48) / (N - 1) * 1.003;
     for (var j = 0; j < N - 1; j++) cons.push({ a: j, b: j + 1, len: seg });
     for (var k = 0; k < 7; k++) packets.push(k * (N - 1) / 7);
 
@@ -485,7 +485,7 @@
         if (i === 0 || i === N - 1 || i === grab) return;
         var vx = (p.x - p.px) * 0.98, vy = (p.y - p.py) * 0.98;
         p.px = p.x; p.py = p.y; p.x += vx; p.y += vy + 0.45;
-        if (p.y > 84) p.y = 84;
+        if (p.y > 41) p.y = 41;
       });
       for (var it = 0; it < 8; it++) cons.forEach(function (k2) {
         var A = pts[k2.a], B = pts[k2.b], dx = B.x - A.x, dy = B.y - A.y, d = Math.hypot(dx, dy) || 1, diff = (d - k2.len) / d / 2;
@@ -512,8 +512,8 @@
         ctx.strokeStyle = broken ? "#6b6b6b" : tensionColor(k2.t || 1); ctx.lineWidth = 6;
         ctx.beginPath(); ctx.moveTo(pts[k2.a].x, pts[k2.a].y); ctx.lineTo(pts[k2.b].x, pts[k2.b].y); ctx.stroke();
       });
-      ctx.fillStyle = "#3d3831"; ctx.fillRect(4, 16, 20, 20); ctx.fillRect(W - 24, 16, 20, 20);
-      ctx.fillStyle = broken ? "#ff3b30" : "#3dff6a"; ctx.fillRect(8, 12, 5, 4); ctx.fillRect(W - 13, 12, 5, 4);
+      ctx.fillStyle = "#3d3831"; ctx.fillRect(4, 6, 20, 16); ctx.fillRect(W - 24, 6, 20, 16);
+      ctx.fillStyle = broken ? "#ff3b30" : "#3dff6a"; ctx.fillRect(8, 2, 5, 4); ctx.fillRect(W - 13, 2, 5, 4);
       if (!broken) {
         ctx.shadowColor = "#fff6a8"; ctx.shadowBlur = 8; ctx.fillStyle = "#fff6a8";
         packets = packets.map(function (p) {

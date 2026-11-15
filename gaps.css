@@ -462,7 +462,7 @@
 .gl-dvd .gl-hint { position: absolute; left: 8px; bottom: 4px; width: auto; color: #777; }
 /* кабель с физикой */
 .gap-cable.rope-wrap { display: block !important; height: auto !important; padding: 0; }
-.rope-wrap canvas { display: block; width: 100%; height: 90px; touch-action: none; cursor: grab; }
+.rope-wrap canvas { display: block; width: 100%; height: 46px; touch-action: none; cursor: grab; }
 .rope-wrap canvas:active { cursor: grabbing; }
 .rope-msg { display: block; text-align: center; font: 12px "Courier New", monospace; color: var(--link-color); }
 
