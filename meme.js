@@ -1,4 +1,4 @@
-// Мемные субтитры поверх фото «Рабочие будни»: монолог сисадмина (18+).
+// Мемные титры «Как я собираю сервер»: отдельный блок внизу страницы, монолог сисадмина (18+).
 // Запуск по клику на кнопку, чтобы не орало само.
 (function () {
   var LINES = [
@@ -20,8 +20,13 @@
   ];
 
   function init() {
-    var frame = document.querySelector("#work-photos .zoom-frame");
-    if (!frame || frame.querySelector(".meme-subs")) return;
+    // отдельный блок в самом низу страницы
+    var main = document.querySelector("main#content");
+    if (!main || document.getElementById("server-build")) return;
+    main.insertAdjacentHTML("beforeend",
+      '<section id="server-build"><h2>🎬 Как я собираю сервер <small class="meme-age">18+</small></h2>' +
+      '<div class="meme-frame"><img src="/images/me/me-at-desk-800.webp" alt="Сборка сервера" width="800" height="758" loading="lazy" decoding="async" /></div></section>');
+    var frame = document.querySelector("#server-build .meme-frame");
     frame.classList.add("meme-host");
     frame.insertAdjacentHTML("beforeend",
       '<div class="meme-rec">🔴 REC · Сборка сервера</div>' +
