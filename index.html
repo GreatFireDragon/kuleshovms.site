@@ -49,6 +49,8 @@
 
     <link href="/style.css?v=22" rel="stylesheet" />
     <link href="/fonts.css" rel="stylesheet" />
+    <link href="/gap-lab.css?v=3" rel="stylesheet" />
+    <script src="/gap-lab.js?v=4" defer></script>
     <link href="/crt.css?v=3" rel="stylesheet" />
     <script src="/layout.js?v=22" defer fetchpriority="high"></script>
 
@@ -503,24 +505,119 @@
             </div>
           </article>
 
-          <!-- Infra Stack (лента в обратную сторону) -->
-          <marquee class="tech-stack-icons reverse">
-            <i class="devicon-docker-plain"></i>
-            <i class="devicon-linux-plain"></i>
-            <i class="devicon-ubuntu-plain"></i>
-            <i class="devicon-debian-plain"></i>
-            <i class="devicon-nginx-original"></i>
-            <i class="devicon-postgresql-plain"></i>
-            <i class="devicon-python-plain"></i>
-            <i class="devicon-flask-original"></i>
-            <i class="devicon-javascript-plain"></i>
-            <i class="devicon-bash-plain"></i>
-            <i class="devicon-powershell-plain"></i>
-            <i class="devicon-git-plain"></i>
-            <i class="devicon-github-original"></i>
-            <i class="devicon-sqlite-plain"></i>
-            <i class="devicon-raspberrypi-plain"></i>
-          </marquee>
+          <!-- Вставки между блоками: варианты лежат в шаблоне, gap-lab.js случайно раскладывает их по .gap-slot -->
+          <template id="gap-pool">
+
+            <!-- 0. Лента иконок (текущее) -->
+            <div class="gap-v" data-v="icons">
+            <!-- Infra Stack (лента в обратную сторону) -->
+            <marquee class="tech-stack-icons reverse">
+              <i class="devicon-docker-plain"></i>
+              <i class="devicon-linux-plain"></i>
+              <i class="devicon-ubuntu-plain"></i>
+              <i class="devicon-debian-plain"></i>
+              <i class="devicon-nginx-original"></i>
+              <i class="devicon-postgresql-plain"></i>
+              <i class="devicon-python-plain"></i>
+              <i class="devicon-flask-original"></i>
+              <i class="devicon-javascript-plain"></i>
+              <i class="devicon-bash-plain"></i>
+              <i class="devicon-powershell-plain"></i>
+              <i class="devicon-git-plain"></i>
+              <i class="devicon-github-original"></i>
+              <i class="devicon-sqlite-plain"></i>
+              <i class="devicon-raspberrypi-plain"></i>
+            </marquee>
+            </div>
+
+            <!-- 1. Лог сервера -->
+            <div class="gap-v gap-log" data-v="log">
+              <div class="txt-ticker"><div class="txt-track">
+                <span>[ OK ] 350 stores online</span><span>[WARN] wifi AP#12 down — уже чиню</span><span>[ OK ] backup done 03:00</span><span>[ OK ] ping dns-shop.ru 4ms</span><span>[INFO] касса №3 снова видит пинпад</span><span>[ OK ] camera #29 back online</span><span>[ OK ] coffee level: 73%</span>
+                <span>[ OK ] 350 stores online</span><span>[WARN] wifi AP#12 down — уже чиню</span><span>[ OK ] backup done 03:00</span><span>[ OK ] ping dns-shop.ru 4ms</span><span>[INFO] касса №3 снова видит пинпад</span><span>[ OK ] camera #29 back online</span><span>[ OK ] coffee level: 73%</span>
+              </div></div>
+            </div>
+
+            <!-- 2. Новостная строка -->
+            <div class="gap-v gap-news" data-v="news">
+              <b class="news-tag">BREAKING</b>
+              <div class="txt-ticker"><div class="txt-track">
+                <span>Касса снова не видит пинпад — эксперты разводят руками</span><span>Дивизион жив, все 350 магазинов на связи</span><span>Cursor написал ещё один сервис, пока админ пил кофе</span><span>Учёные: в 90% случаев виноват DNS</span>
+                <span>Касса снова не видит пинпад — эксперты разводят руками</span><span>Дивизион жив, все 350 магазинов на связи</span><span>Cursor написал ещё один сервис, пока админ пил кофе</span><span>Учёные: в 90% случаев виноват DNS</span>
+              </div></div>
+            </div>
+
+            <!-- 3. Значки 88x31 про сисадминство (нарисованы CSS) -->
+            <div class="gap-v gap-badges" data-v="badges">
+              <div class="txt-ticker"><div class="txt-track">
+                <span class="b88 b-dns">IT'S ALWAYS<br>DNS</span><span class="b88 b-off">TRIED TURNING IT<br>OFF AND ON?</span><span class="b88 b-sudo">sudo make me<br>a sandwich</span><span class="b88 b-wom">WORKS ON<br>MY MACHINE</span><span class="b88 b-rtfm">RTFM</span><span class="b88 b-cad">CTRL+ALT+DEL</span><span class="b88 b-ping">ping 4ms<br>✓ ONLINE</span>
+                <span class="b88 b-dns">IT'S ALWAYS<br>DNS</span><span class="b88 b-off">TRIED TURNING IT<br>OFF AND ON?</span><span class="b88 b-sudo">sudo make me<br>a sandwich</span><span class="b88 b-wom">WORKS ON<br>MY MACHINE</span><span class="b88 b-rtfm">RTFM</span><span class="b88 b-cad">CTRL+ALT+DEL</span><span class="b88 b-ping">ping 4ms<br>✓ ONLINE</span>
+              </div></div>
+            </div>
+
+            <!-- 4. Логотипы железа (текстом) -->
+            <div class="gap-v gap-brands" data-v="brands">
+              <div class="txt-ticker"><div class="txt-track">
+                <span class="br-cisco">cisco</span><span class="br-mikrotik">MikroTik</span><span class="br-snr">SNR</span><span class="br-ubnt">UBIQUITI</span><span class="br-yealink">Yealink</span><span class="br-hik">HIKVISION</span><span class="br-zabbix">ZABBIX</span><span class="br-docker">docker</span>
+                <span class="br-cisco">cisco</span><span class="br-mikrotik">MikroTik</span><span class="br-snr">SNR</span><span class="br-ubnt">UBIQUITI</span><span class="br-yealink">Yealink</span><span class="br-hik">HIKVISION</span><span class="br-zabbix">ZABBIX</span><span class="br-docker">docker</span>
+              </div></div>
+            </div>
+
+            <!-- 6. Аптайм -->
+            <div class="gap-v gap-uptime" data-v="uptime">
+              <span class="up-label">uptime в DNS:</span>
+              <span class="up-value js-uptime">… days</span>
+              <span class="up-ok">● load average: стабильно</span>
+            </div>
+
+            <!-- 7. Мини-терминал -->
+            <div class="gap-v gap-term" data-v="term">
+              <pre class="js-term"></pre>
+            </div>
+
+            <!-- 8. Загрузка опыта -->
+            <div class="gap-v gap-loading" data-v="loading">
+              <span>копирование опыта…</span>
+              <div class="load-bar"><i></i></div>
+              <span class="load-pct">0%</span>
+              <span class="load-eta">осталось: считаю…</span>
+            </div>
+
+            <!-- 9. Лампочки стойки -->
+            <div class="gap-v gap-leds" data-v="leds">
+              <span class="led on"></span>сеть
+              <span class="led on d2"></span>кассы
+              <span class="led on d3"></span>камеры
+              <span class="led warn"></span>Wi-Fi
+              <span class="led on d4"></span>сервисы
+              <span class="led low"></span>кофе
+            </div>
+
+            <!-- 10. Пиксельный кабель -->
+            <div class="gap-v gap-cable" data-v="cable">
+              <span class="plug"></span>
+              <div class="wire"><i></i><i></i><i></i></div>
+              <span class="plug"></span>
+            </div>
+
+            <!-- 11. Серверная стойка -->
+            <div class="gap-v gap-rack" data-v="rack">
+              <div class="rack-frame">
+                <div class="rack-label">KULESHOV-RACK-01</div>
+                <div class="unit u-switch"><b>SW-01</b><span class="ports"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+                <div class="unit u-switch"><b>SW-02</b><span class="ports"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+                <div class="unit u-server"><b>NVR</b><span class="bays"><i></i><i></i><i></i><i></i></span><em class="pwr"></em></div>
+                <div class="unit u-ups"><b>UPS</b><span class="ups-screen">100% ⚡</span><em class="pwr"></em></div>
+              </div>
+            </div>
+
+            <!-- 12. Загрузка BIOS -->
+            <div class="gap-v gap-bios" data-v="bios">
+              <pre class="js-bios"></pre>
+            </div>
+          </template>
+
+          <div class="gap-slot"></div>
 
           <!-- Job 1 -->
           <article class="job-card">
@@ -582,27 +679,7 @@
             </div>
           </article>
 
-          <!-- Tech Stack -->
-          <marquee class="tech-stack-icons">
-            <i class="devicon-chrome-plain"></i>
-            <i class="devicon-firefox-plain"></i>
-            <i class="devicon-google-plain"></i>
-            <i class="devicon-javascript-plain"></i>
-            <i class="devicon-python-plain"></i>
-            <i class="devicon-php-plain"></i>
-            <i class="devicon-bash-plain"></i>
-            <i class="devicon-ssh-original"></i>
-            <i class="devicon-html5-plain"></i>
-            <i class="devicon-css3-plain"></i>
-            <i class="devicon-wordpress-plain"></i>
-            <i class="devicon-linux-plain"></i>
-            <i class="devicon-windows8-original"></i>
-            <i class="devicon-nginx-original"></i>
-            <i class="devicon-apache-plain"></i>
-            <i class="devicon-git-plain"></i>
-            <i class="devicon-vscode-plain"></i>
-            <i class="devicon-nodejs-plain"></i>
-          </marquee>
+          <div class="gap-slot"></div>
 
           <!-- Job 2 -->
           <article class="job-card">
@@ -765,6 +842,8 @@
             title="Гифка моего офигенного сервера"
           />
         </section>
+
+        <div class="gap-slot gap-slot-out"></div>
 
         <!-- =============================================== -->
         <!-- EDUCATION & OTHER -->
