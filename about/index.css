@@ -731,19 +731,16 @@ img.division-map {
   text-align: right;
 }
 
-.mega-badges {
-  float: right;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  margin: 0 0 6px 10px;
-}
-
-.mega-badges img {
-  width: 88px;
-  height: 31px;
-}
-
 .svc-grid {
   clear: both;
+}
+
+.mega-quote {
+  margin: 0 0 12px;
+}
+
+.job-official {
+  font-size: 0.85em;
+  color: var(--sidebar-text-color);
+  opacity: 0.85;
 }
