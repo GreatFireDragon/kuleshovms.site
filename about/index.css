@@ -747,7 +747,17 @@ img.division-map {
 
 .humble {
   display: block;
-  margin-top: 6px;
-  font-size: 0.85em;
-  opacity: 0.8;
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--sidebar-background-color);
+  font-style: normal;
+  font-weight: bold;
+  color: var(--link-color);
+}
+
+/* Мыльная мини-копия видна сразу, пока грузится оригинал */
+img.lqip-bg {
+  background-size: cover;
+  background-position: var(--pos, 50% 50%);
+  background-repeat: no-repeat;
 }
