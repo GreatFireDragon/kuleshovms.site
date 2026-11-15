@@ -245,6 +245,20 @@
     '<div class="gl-padazhi2"><div class="pz-meme"><img src="/images/work/padazhi.webp" alt="Так, падажжи, ёбана" width="300" height="298" loading="lazy" /><p class="pz-top"></p><p class="pz-twist"></p><b class="pz-punch">ТАК, ПАДАЖЖИ, ЁБАНА</b></div></div>',
     function (el) {
       var top = el.querySelector(".pz-top"), twist = el.querySelector(".pz-twist"), k = Math.floor(rnd(0, PADAZHI.length));
+      // локально: кнопки для подбора размера текста
+      if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) {
+        var row = document.createElement("div"); row.className = "pz-sizes";
+        [12, 13, 14, 15, 16, 17, 18].forEach(function (px) {
+          var b = document.createElement("button"); b.type = "button"; b.textContent = px + "px";
+          if (px === 15) b.className = "on";
+          b.addEventListener("click", function () {
+            el.style.setProperty("--pz-size", px + "px");
+            row.querySelectorAll("button").forEach(function (x) { x.classList.toggle("on", x === b); });
+          });
+          row.appendChild(b);
+        });
+        el.appendChild(row);
+      }
       function play() {
         if (!el.isConnected) return;
         var sc = PADAZHI[k++ % PADAZHI.length], i = 0;
