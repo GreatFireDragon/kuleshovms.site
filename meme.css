@@ -1,0 +1,59 @@
+/* Мемные субтитры поверх фото «Рабочие будни» */
+.meme-host { position: relative; }
+
+.meme-subs {
+  position: absolute;
+  left: 4%;
+  right: 4%;
+  bottom: 10%;
+  z-index: 3;
+  text-align: center;
+  color: #ffeb3b;
+  font: 900 clamp(14px, 2.4vw, 22px)/1.25 Impact, "Arial Black", sans-serif;
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 0 8px #000;
+  pointer-events: none;
+}
+.meme-subs.pop { animation: meme-pop 0.25s ease-out; }
+@keyframes meme-pop { from { transform: scale(1.25); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+.meme-rec {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  z-index: 3;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font: bold 12px "Courier New", monospace;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+.meme-on .meme-rec { opacity: 1; animation: led 1s steps(1) infinite; }
+
+.meme-play {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  z-index: 4;
+  transform: translateX(-50%);
+  padding: 6px 14px;
+  border: 2px solid #ffeb3b;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #ffeb3b;
+  font: bold 13px "Courier New", monospace;
+  cursor: pointer;
+  opacity: 0.85;
+}
+.meme-play small { display: block; font-size: 10px; opacity: 0.7; }
+.meme-play:hover { opacity: 1; }
+.meme-on .meme-play { display: none; }
+
+/* фото во время монолога */
+.meme-on img { transform: scale(1.05) !important; }
+.meme-shake img { animation: meme-shake 0.15s infinite; }
+@keyframes meme-shake { 25% { translate: -3px 2px; } 75% { translate: 3px -2px; } }
+.meme-final img { animation: meme-shake 0.06s infinite; filter: saturate(1.6) contrast(1.2); }
+.meme-final .meme-subs { color: #ff3b30; font-size: clamp(16px, 3vw, 28px); }

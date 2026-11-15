@@ -18,8 +18,18 @@
   display: block;
 }
 
+/* слот между секциями лежит на тёмном фоне — даём ему светлую рамку-подложку */
 .gap-slot-out {
   margin: 0 0 var(--margin);
+  padding: 8px;
+  border-radius: var(--round-borders);
+  background: #ead8be;
+  border: 6px solid var(--sidebar-background-color);
+  box-shadow: 0 0 18px rgba(255, 170, 60, 0.12);
+}
+
+.gap-slot-out:empty {
+  display: none;
 }
 
 /* ---------- общий текстовый тикер ---------- */

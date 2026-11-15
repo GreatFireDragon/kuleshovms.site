@@ -1,0 +1,55 @@
+/* Раунд 5: спидтест, сеть, CRT */
+
+/* ===== Спидтест ===== */
+.gl-speed3 { align-items: center; justify-content: center; gap: 22px; flex-wrap: wrap; padding: 12px 16px; border-radius: 10px; background: radial-gradient(circle at 30% 30%, #23244a, #12132a); color: #e6e7ff; font: 13px "Segoe UI", sans-serif; }
+.sp-gauge { position: relative; width: 230px; }
+.sp-gauge svg { display: block; width: 230px; height: 138px; }
+.gl-speed3 .track { fill: none; stroke: #2e2f5a; stroke-width: 14; stroke-linecap: round; }
+.gl-speed3 .fill { fill: none; stroke: url(#sg); stroke-width: 14; stroke-linecap: round; stroke-dasharray: 0 100; transition: stroke-dasharray 0.12s; }
+.gl-speed3 .tick { fill: #7d7fb5; font: 8px "Segoe UI", sans-serif; text-anchor: middle; }
+.gl-speed3 .needle { stroke: #fff; stroke-width: 3; stroke-linecap: round; transform-origin: 100px 100px; transform: rotate(-90deg); transition: transform 0.12s; }
+.gl-speed3 circle { fill: #fff; }
+.gl-speed3 .sp-go { position: absolute; left: 50%; bottom: 4px; transform: translateX(-50%); width: 56px; height: 56px; border-radius: 50%; border: 3px solid #4fc3ff; background: #12132a; color: #4fc3ff; font: bold 15px "Segoe UI", sans-serif; letter-spacing: 1px; cursor: pointer; box-shadow: 0 0 14px rgba(79, 195, 255, 0.4); transition: background 0.2s, color 0.2s; }
+.gl-speed3 .sp-go:hover { background: #4fc3ff; color: #12132a; }
+.gl-speed3.running .sp-go { animation: led 0.8s infinite; }
+.sp-panel { display: flex; flex-direction: column; gap: 6px; min-width: 220px; }
+.sp-row { display: flex; gap: 24px; }
+.sp-row small { display: block; color: #9a9bd0; font-size: 10px; letter-spacing: 1px; }
+.sp-row b { font-size: 30px; font-weight: 600; }
+.sp-row em { margin-left: 4px; font-style: normal; color: #9a9bd0; font-size: 11px; }
+.sp-phase { margin: 0; min-height: 1.3em; color: #ffcf6e; }
+.gl-speed3 .sp-info { font-size: 11px; color: #9a9bd0; line-height: 1.45; }
+.gl-speed3 .sp-info b { color: #e6e7ff; font-size: 11px; }
+
+/* ===== Сеть: компактно, без кнопок ===== */
+.gl-net3 { flex-direction: column; gap: 2px; padding: 6px 10px; border-radius: var(--round-borders); background: #1b1d24; color: #dfe3ee; font: 12px "Segoe UI", sans-serif; }
+.gl-net3 .net-stage { position: relative; display: flex; align-items: center; height: 62px; padding: 0 6px; }
+.gl-net3 .node { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 1px; padding: 0; border: none; background: none; color: inherit; font: inherit; }
+.gl-net3 .ico { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 8px; background: #2a2d38; border: 2px solid #3b4050; font-size: 18px; }
+.gl-net3 small { color: #9aa3b8; font-size: 10px; }
+.gl-net3 .n-sw { cursor: pointer; }
+.gl-net3 .n-sw small { color: #ffcf6e; }
+.gl-net3 .sw-box { display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 4px 8px; border-radius: 6px; background: #2a2d38; border: 2px solid #3b4050; font: bold 10px "Courier New", monospace; transition: border-color 0.2s; }
+.gl-net3 .n-sw:hover .sw-box { border-color: #36b37e; }
+.gl-net3 .sw-leds { display: flex; gap: 3px; }
+.gl-net3 .sw-leds i { width: 5px; height: 5px; border-radius: 1px; background: #3dff6a; box-shadow: 0 0 4px #3dff6a; animation: led 0.6s infinite; }
+.gl-net3 .sw-leds i:nth-child(2n) { animation-delay: 0.2s; }
+.gl-net3 .link { position: relative; flex: 1; height: 3px; margin: 0 6px; background: #3b4050; overflow: hidden; }
+.gl-net3 .link i { position: absolute; inset: 0; background: repeating-linear-gradient(90deg, #4fc3ff 0 10px, transparent 10px 20px); animation: flow 0.8s linear infinite; }
+.gl-net3 .pkt { position: absolute; z-index: 2; transform: translate(-50%, -50%); padding: 0 5px; border-radius: 3px; background: #ffb347; color: #17110a; font: bold 9px "Courier New", monospace; pointer-events: none; }
+.gl-net3 .cpu-meter { position: absolute; right: 2px; top: 0; font: 10px "Courier New", monospace; color: #8dff9d; }
+.gl-net3 .net-msg { text-align: center; color: #ffcf6e; min-height: 1.3em; font-style: normal; font-size: 12px; }
+.gl-net3[data-mode="storm"] .sw-leds i { background: #ffc233; animation-duration: 0.07s; }
+.gl-net3[data-mode="storm"] .pkt { background: #ff5a3c; }
+.gl-net3[data-mode="storm"] .net-stage { animation: lag 0.5s steps(3) infinite; }
+.gl-net3.hot .cpu-meter { color: #ff3b30; animation: led 0.3s infinite; }
+.gl-net3[data-mode="cable"] .l1 i { animation: none; background: none; }
+.gl-net3[data-mode="cable"] .l1 { background: linear-gradient(90deg, #3b4050 45%, transparent 45% 55%, #3b4050 55%); }
+.gl-net3[data-mode="dns"] .pkt { background: #b388ff; }
+.gl-net3[data-mode="fw"] .sw-leds i { background: #4fc3ff; box-shadow: 0 0 4px #4fc3ff; animation-duration: 0.15s; }
+
+/* ===== CRT-панель ниже ===== */
+.gl-crt2 { gap: 10px 14px; padding: 6px 14px; }
+.gl-crt2 .knob { width: 22px; height: 22px; font-size: 11px; }
+.gl-crt2 .pwr-btn { width: 32px; height: 32px; font-size: 15px; }
+.gl-crt2 .crt-msg { width: auto; flex: 1 0 100%; font-size: 11px; margin-top: -4px; }

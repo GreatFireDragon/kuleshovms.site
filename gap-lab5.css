@@ -1,0 +1,138 @@
+/* Раунд 4 */
+
+/* бегущие строки никогда не останавливаются при наведении */
+.txt-ticker:hover .txt-track,
+.ticker88:hover .ticker88-track {
+  animation-play-state: running !important;
+}
+
+/* лог: предупреждения и ошибки мигают красным */
+.gap-log .txt-track span.bad {
+  color: #ff5a3c;
+  text-shadow: 0 0 6px rgba(255, 90, 60, 0.8);
+  animation: bad-blink 0.9s steps(1) infinite;
+  cursor: pointer;
+}
+@keyframes bad-blink { 50% { color: #ffd2c4; text-shadow: none; } }
+
+/* ===== подсказки: полупрозрачный чип в углу, ярче при наведении ===== */
+.gap-slot .gap-v { position: relative; }
+.gl-hint {
+  position: absolute !important;
+  right: 6px;
+  bottom: 4px;
+  width: auto !important;
+  margin: 0 !important;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff1c1;
+  font: 10px "Courier New", monospace;
+  opacity: 0.35;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  z-index: 3;
+}
+.gap-v:hover .gl-hint { opacity: 0.95; }
+.has-hint::after {
+  content: "👆 " attr(data-hint);
+  position: absolute;
+  right: 6px;
+  bottom: 4px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff1c1;
+  font: 10px "Courier New", monospace;
+  opacity: 0.35;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+.has-hint:hover::after { opacity: 0.95; }
+.gap-leds.has-hint { padding-bottom: 22px; }
+
+/* ===== салют и тост ===== */
+.confetti {
+  position: absolute;
+  bottom: 10%;
+  font-size: 18px;
+  pointer-events: none;
+  animation: confetti 1.6s ease-out forwards;
+  z-index: 5;
+}
+@keyframes confetti {
+  0% { transform: translate(0, 0) scale(0.6); opacity: 1; }
+  60% { transform: translate(var(--dx), -70px) scale(1.1); opacity: 1; }
+  100% { transform: translate(var(--dx), -40px) scale(0.8); opacity: 0; }
+}
+.win-toast {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 6;
+  padding: 6px 14px;
+  border-radius: 8px;
+  background: rgba(20, 60, 28, 0.95);
+  color: #c8ffd0;
+  font: bold 13px "Courier New", monospace;
+  white-space: nowrap;
+  transform: translate(-50%, -50%) scale(0.6);
+  opacity: 0;
+  pointer-events: none;
+}
+.win-toast.show { animation: toast 2.6s ease forwards; }
+@keyframes toast {
+  10% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
+  15%, 80% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+}
+
+/* ===== кофе на стойке: капли по фасаду и лужа ===== */
+.rack-cup .spill { display: none !important; }
+.coffee-spill { position: absolute; inset: 0; pointer-events: none; z-index: 4; }
+.coffee-spill i {
+  position: absolute;
+  top: 0;
+  width: 5px;
+  height: 0;
+  border-radius: 0 0 4px 4px;
+  background: linear-gradient(#7a4520, #4a2508);
+  animation: drip 1.4s ease-in forwards;
+}
+@keyframes drip { to { height: var(--len); } }
+.coffee-spill b {
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  width: 0;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(#7a4520, #4a2508);
+  transform: translateX(-30%);
+  animation: puddle 2.2s ease-out 1.2s forwards;
+}
+@keyframes puddle { to { width: 70%; } }
+.gap-rack.spilling .rack-cup { transform: rotate(-100deg) translate(-4px, -2px); }
+
+/* ===== Win98: компактнее ===== */
+.gl-win98.v3 { max-width: 460px; font-size: 12px; }
+.gl-win98.v3 .w98-body { padding: 8px 10px; }
+.gl-win98.v3 .w98-icon { font-size: 22px; }
+.gl-win98.v3 .w98-arena { min-height: 96px; }
+.gl-win98.v3 .w98-btns { padding: 0 10px 8px 44px; }
+
+/* ===== змейка: по центру, кнопки скорости ===== */
+.gl-snake2 { align-items: center; }
+.gl-snake2 canvas { width: auto !important; max-width: 100%; margin: 0 auto; }
+.sn-bar { width: 100%; align-items: center; }
+.sn-speed { display: flex; gap: 4px; }
+.sn-speed button { padding: 1px 8px; border: 1px solid #ffb347; border-radius: 4px; background: transparent; color: #ffb347; font: bold 11px "Courier New", monospace; cursor: pointer; }
+.sn-speed button.on { background: #ffb347; color: #17110a; }
+
+/* ===== футер: подпись сверху, полоса снизу ===== */
+footer { flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+footer .footer-extra { margin-top: 0; }
+
+/* ===== спидтест: инфо о браузере ===== */
+.sp-info { grid-column: 1 / -1; margin-top: 2px; font-size: 11px; color: #9a9bd0; line-height: 1.4; }
+.sp-info b { font-size: 11px; color: #e6e7ff; }

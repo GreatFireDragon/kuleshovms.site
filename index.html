@@ -49,8 +49,22 @@
 
     <link href="/style.css?v=22" rel="stylesheet" />
     <link href="/fonts.css" rel="stylesheet" />
-    <link href="/gap-lab.css?v=3" rel="stylesheet" />
-    <script src="/gap-lab.js?v=5" defer></script>
+    <link href="/meme.css?v=1" rel="stylesheet" />
+    <script src="/meme.js?v=1" defer></script>
+    <link href="/gap-lab.css?v=4" rel="stylesheet" />
+    <link href="/gap-lab2.css?v=2" rel="stylesheet" />
+    <link href="/gap-interact.css?v=2" rel="stylesheet" />
+    <link href="/gap-lab3.css?v=1" rel="stylesheet" />
+    <link href="/gap-lab4.css?v=1" rel="stylesheet" />
+    <link href="/gap-lab5.css?v=1" rel="stylesheet" />
+    <link href="/gap-lab6.css?v=1" rel="stylesheet" />
+    <script src="/gap-lab2.js?v=3" defer></script>
+    <script src="/gap-lab3.js?v=2" defer></script>
+    <script src="/gap-lab4.js?v=5" defer></script>
+    <script src="/gap-interact.js?v=3" defer></script>
+    <script src="/gap-interact2.js?v=3" defer></script>
+    <script src="/gap-lab5.js?v=3" defer></script>
+    <script src="/gap-lab.js?v=10" defer></script>
     <link href="/crt.css?v=3" rel="stylesheet" />
     <script src="/layout.js?v=22" defer fetchpriority="high"></script>
 
@@ -510,33 +524,11 @@
           <!-- Вставки между блоками: варианты лежат в шаблоне, gap-lab.js случайно раскладывает их по .gap-slot -->
           <template id="gap-pool">
 
-            <!-- 0. Лента иконок (текущее) -->
-            <div class="gap-v" data-v="icons">
-            <!-- Infra Stack (лента в обратную сторону) -->
-            <marquee class="tech-stack-icons reverse">
-              <i class="devicon-docker-plain"></i>
-              <i class="devicon-linux-plain"></i>
-              <i class="devicon-ubuntu-plain"></i>
-              <i class="devicon-debian-plain"></i>
-              <i class="devicon-nginx-original"></i>
-              <i class="devicon-postgresql-plain"></i>
-              <i class="devicon-python-plain"></i>
-              <i class="devicon-flask-original"></i>
-              <i class="devicon-javascript-plain"></i>
-              <i class="devicon-bash-plain"></i>
-              <i class="devicon-powershell-plain"></i>
-              <i class="devicon-git-plain"></i>
-              <i class="devicon-github-original"></i>
-              <i class="devicon-sqlite-plain"></i>
-              <i class="devicon-raspberrypi-plain"></i>
-            </marquee>
-            </div>
-
             <!-- 1. Лог сервера -->
             <div class="gap-v gap-log" data-v="log">
               <div class="txt-ticker"><div class="txt-track">
-                <span>[ OK ] 350 stores online</span><span>[WARN] wifi AP#12 down — уже чиню</span><span>[ OK ] backup done 03:00</span><span>[ OK ] ping dns-shop.ru 4ms</span><span>[INFO] касса №3 снова видит пинпад</span><span>[ OK ] camera #29 back online</span><span>[ OK ] coffee level: 73%</span>
-                <span>[ OK ] 350 stores online</span><span>[WARN] wifi AP#12 down — уже чиню</span><span>[ OK ] backup done 03:00</span><span>[ OK ] ping dns-shop.ru 4ms</span><span>[INFO] касса №3 снова видит пинпад</span><span>[ OK ] camera #29 back online</span><span>[ OK ] coffee level: 73%</span>
+                <span>[ OK ] all systems online</span><span class="bad">[WARN] wifi AP#12 down — уже чиню</span><span>[ OK ] backup done 03:00</span><span>[ OK ] ping 8.8.8.8 4ms</span><span class="bad">[ERR ] printer: paper jam (again)</span><span>[ OK ] camera #29 back online</span><span class="bad">[WARN] coffee level: 7%</span>
+                <span>[ OK ] all systems online</span><span class="bad">[WARN] wifi AP#12 down — уже чиню</span><span>[ OK ] backup done 03:00</span><span>[ OK ] ping 8.8.8.8 4ms</span><span class="bad">[ERR ] printer: paper jam (again)</span><span>[ OK ] camera #29 back online</span><span class="bad">[WARN] coffee level: 7%</span>
               </div></div>
             </div>
 
@@ -544,8 +536,8 @@
             <div class="gap-v gap-news" data-v="news">
               <b class="news-tag">BREAKING</b>
               <div class="txt-ticker"><div class="txt-track">
-                <span>Касса снова не видит пинпад — эксперты разводят руками</span><span>Дивизион жив, все 350 магазинов на связи</span><span>Cursor написал ещё один сервис, пока админ пил кофе</span><span>Учёные: в 90% случаев виноват DNS</span>
-                <span>Касса снова не видит пинпад — эксперты разводят руками</span><span>Дивизион жив, все 350 магазинов на связи</span><span>Cursor написал ещё один сервис, пока админ пил кофе</span><span>Учёные: в 90% случаев виноват DNS</span>
+                <span>Принтер снова зажевал бумагу — эксперты разводят руками</span><span>Все серверы на связи, админ подозрительно спокоен</span><span>Cursor написал ещё один сервис, пока админ пил кофе</span><span>Учёные: в 90% случаев виноват DNS-сервер</span>
+                <span>Принтер снова зажевал бумагу — эксперты разводят руками</span><span>Все серверы на связи, админ подозрительно спокоен</span><span>Cursor написал ещё один сервис, пока админ пил кофе</span><span>Учёные: в 90% случаев виноват DNS-сервер</span>
               </div></div>
             </div>
 
@@ -567,7 +559,7 @@
 
             <!-- 6. Аптайм -->
             <div class="gap-v gap-uptime" data-v="uptime">
-              <span class="up-label">uptime в DNS:</span>
+              <span class="up-label">uptime:</span>
               <span class="up-value js-uptime">… days</span>
               <span class="up-ok">● load average: стабильно</span>
             </div>
@@ -588,11 +580,11 @@
             <!-- 9. Лампочки стойки -->
             <div class="gap-v gap-leds" data-v="leds">
               <span class="led on"></span>сеть
-              <span class="led on d2"></span>кассы
+              <span class="led on d2"></span>серверы
               <span class="led on d3"></span>камеры
               <span class="led warn"></span>Wi-Fi
               <span class="led on d4"></span>сервисы
-              <span class="led low"></span>кофе
+              <span class="led on"></span>кофе
             </div>
 
             <!-- 10. Пиксельный кабель -->
