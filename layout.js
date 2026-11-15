@@ -34,7 +34,7 @@ function headerHTML() {
 }
 
 function sidebarHTML_normal() {
-  let fileUrl = nesting + '/Layout/sidebar.html?v=15';
+  let fileUrl = nesting + '/Layout/sidebar.html?v=19';
 
   fetch(fileUrl)
     .then(response => {

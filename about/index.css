@@ -372,7 +372,7 @@
 
 .task-frame {
   --pos: 50% 50%;
-  height: 110px;
+  height: var(--h, 110px);
   margin-top: 6px;
   overflow: hidden;
   border-radius: var(--round-borders);
@@ -546,7 +546,7 @@
   }
 
   .task-frame {
-    height: 90px;
+    height: calc(var(--h, 110px) * 0.8);
   }
 
   .task-frame:hover {
@@ -743,4 +743,11 @@ img.division-map {
   font-size: 0.85em;
   color: var(--sidebar-text-color);
   opacity: 0.85;
+}
+
+.humble {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.85em;
+  opacity: 0.8;
 }
