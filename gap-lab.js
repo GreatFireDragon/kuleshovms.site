@@ -157,7 +157,8 @@
       if (n < 40) setTimeout(function () { tryFooter(n + 1); }, 100);
     };
     tryFooter(0);
-    if (!isLocal) return;
+    // панель обзора — только локально и только с ?review в адресе
+    if (!isLocal || !/[?&]review/.test(location.search)) return;
     buildPanel();
   });
   function localFooter() { if (!isLocal) return null; try { return localStorage.getItem("gapReview.footer"); } catch (e) { return null; } }
