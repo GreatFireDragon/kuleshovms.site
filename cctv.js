@@ -7,30 +7,30 @@
   }
   tick(); setInterval(tick, 1000);
 
-  // камеры: всё NO SIGNAL, раз в пару секунд одна оживает на 1,5 с
-  var SCENES = [
-    ['<span style="left:28%" class="bob">🦝</span><span style="left:58%">📦</span>', "ИНВЕНТАРИЗАЦИЯ"],
-    ['<span style="left:35%;bottom:26px">🐈</span><span style="left:32%">🖥️</span>', "КОТ ГРЕЕТСЯ НА СЕРВЕРЕ"],
-    ['<span style="left:35%">😴</span><span class="zz" style="left:58%;bottom:30px">z</span>', "НОЧНАЯ СМЕНА"],
-    ['<span style="left:38%" class="bob">🕺</span>', "ОХРАНА НА ПОСТУ"],
-    ['<span style="left:40%" class="bob">🐦</span>', "ПОСЕТИТЕЛЬ"],
-    ['<span style="left:40%;bottom:24px" class="bob">👻</span>', "ДВИЖЕНИЕ В СЕРВЕРНОЙ"],
-    ['<span style="left:40%;bottom:30px" class="bob">🛸</span>', "ДОСТАВКА"],
-    ['<span style="left:25%">🧍</span><span style="left:52%">✂️</span><span style="left:70%">🔌</span>', "ЭТО ПРОСТО ЛИШНИЙ ПРОВОД"],
-    ['<span class="run" style="font-size:18px">🐀</span>', "ГРЫЗЁТ ПАТЧ-КОРД"],
-    ['<span style="left:30%">🦆</span><span style="left:55%">🦆</span>', "ТЕСТ НА ПРОИЗВОДИТЕЛЬНОСТЬ"],
-    ['<span style="left:38%" class="bob">🙋</span>', "А МОЖНО МЕНЯ ТОЖЕ В ЧАТ"]
-  ];
-  var k = Math.floor(Math.random() * SCENES.length);
+  // камеры: всё NO SIGNAL, раз в пару секунд одна оживает на 1,5 с; изредка в кадре кто-то есть
+  var POOL = { zal: ["m1", "m2"], sklad: ["w1", "w2", "c4"], street: ["u1", "u2", "p1"], server: ["s4", "s1", "c3", "c2"] };
+  var SCARY = { zal: "m1-x", street: "u2-x", server: "c2-x" };
+  function src(n) { return "/images/cams/" + n + ".webp"; }
   document.querySelectorAll(".cctv-wall").forEach(function (wall) {
-    var cams = wall.querySelectorAll(".cam");
-    (function wake() {
-      var cam = cams[Math.floor(Math.random() * cams.length)], sc = SCENES[k++ % SCENES.length];
-      cam.querySelector(".scene").innerHTML = sc[0] + '<span class="cap">' + sc[1] + "</span>";
+    var cams = wall.querySelectorAll(".cam"), last = null, started = false, count = 0;
+    function wake() {
+      var cam; do { cam = cams[Math.floor(Math.random() * cams.length)]; } while (cam === last && cams.length > 1);
+      last = cam; count++;
+      var key = cam.dataset.cam, pool = POOL[key] || [], scary = SCARY[key] && count > 3 && Math.random() < 0.15;
+      var name = scary ? SCARY[key] : pool[Math.floor(Math.random() * pool.length)];
+      cam.querySelector(".scene").innerHTML = '<img src="' + src(name) + '" alt="" />' + (scary ? '<span class="cap alarm">ДВИЖЕНИЕ ОБНАРУЖЕНО</span>' : "");
       cam.classList.remove("lost");
-      setTimeout(function () { cam.classList.add("lost"); }, 1500 + Math.random() * 600);
+      setTimeout(function () { cam.classList.add("lost"); }, scary ? 1100 : 1500 + Math.random() * 600);
       setTimeout(wake, 2600 + Math.random() * 1800);
-    })();
+    }
+    // качаем кадры, только когда стену видно
+    var io = new IntersectionObserver(function (es) {
+      if (started || !es[0].isIntersecting) return;
+      started = true; io.disconnect();
+      Object.keys(POOL).forEach(function (k) { POOL[k].concat(SCARY[k] || []).forEach(function (n) { new Image().src = src(n); }); });
+      setTimeout(wake, 800);
+    });
+    io.observe(wall);
   });
 
   // чат: сообщения сыплются, счётчик растёт

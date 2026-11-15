@@ -144,3 +144,21 @@
 /* ===== вставки-разбивки приглушены, чтобы не отвлекали; при наведении — в полную силу ===== */
 .gap-slot { opacity: 0.4; transition: opacity 0.35s ease; }
 .gap-slot:hover, .gap-slot:focus-within { opacity: 1; }
+
+/* камеры v3: реальные тёмные кадры */
+.scene img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.scene .cap.alarm { color: #ff3b30; top: auto; bottom: 18px; animation: led 0.5s steps(1) infinite; }
+.cctv-wall .cam-label { z-index: 2; }
+.cctv-credit { position: absolute; left: 6px; bottom: 3px; z-index: 3; color: #6b7a6b; font: 9px "Courier New", monospace; text-decoration: none; }
+.cctv-credit:hover { color: #e8ffe8; }
+
+/* ===== мобильные: подсказки отдельной строкой, а не поверх содержимого ===== */
+@media (max-width: 600px) {
+  .gap-slot .gl-hint { position: static !important; display: block; width: 100% !important; margin-top: 6px !important; text-align: right; }
+  .gap-slot .has-hint { padding-bottom: 24px; }
+}
+@media (max-width: 600px) {
+  .task-frame.cctv-frame, .task-frame.cctv-frame:hover { height: 200px; }
+  .cctv-wall { grid-template-columns: repeat(2, 1fr); transform: none; }
+  .task-frame.chat-frame, .task-frame.chat-frame:hover { height: 170px; }
+}
