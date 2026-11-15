@@ -706,3 +706,7 @@ header img.pixel-avatar {
   image-rendering: pixelated;
   border-radius: 8px;
 }
+
+.ticker88.reverse .ticker88-track {
+  animation-direction: reverse;
+}

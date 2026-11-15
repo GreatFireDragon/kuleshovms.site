@@ -132,7 +132,7 @@ function makeTickers() {
   document.querySelectorAll('marquee.img88x31, marquee.tech-stack-icons').forEach(function (mq) {
     var items = Array.prototype.slice.call(mq.children);
     var ticker = document.createElement('div');
-    ticker.className = 'ticker88' + (mq.classList.contains('tech-stack-icons') ? ' tech-stack-icons' : '');
+    ticker.className = 'ticker88' + (mq.classList.contains('tech-stack-icons') ? ' tech-stack-icons' : '') + (mq.classList.contains('reverse') ? ' reverse' : '');
     var track = document.createElement('div');
     track.className = 'ticker88-track';
     // минимум 6 значков в половине ленты, чтобы она была шире сайдбара
