@@ -80,21 +80,6 @@ body::before {
   opacity: 0.5;
 }
 
-/* LAYER 2 remains unchanged */
-/* body::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background-image: url("images/bg-tile.gif");
-  background-repeat: repeat;
-  filter: contrast(0.5);
-  pointer-events: none;
-} */
-
 ::selection {
   /* (Text highlighted by the user) */
   background: rgba(0, 0, 0, 0.2);

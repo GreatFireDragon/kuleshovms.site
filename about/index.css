@@ -768,3 +768,6 @@ img.lqip-bg {
 @media (max-width: 600px) {
   .job-details ul { padding: 10px 8px; }
 }
+
+/* значок GitHub в заголовке (вместо внешнего шрифта devicon) */
+.h2-ico { vertical-align: -0.12em; }

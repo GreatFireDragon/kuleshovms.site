@@ -15,8 +15,6 @@ function loadLayoutByPetraPixel() {
   giveActiveClassToCurrentPage();
 }
 
-const nesting = getNesting();
-
 function headerHTML() {
   
     return `
@@ -34,7 +32,8 @@ function headerHTML() {
 }
 
 function sidebarHTML_normal() {
-  let fileUrl = nesting + '/Layout/sidebar.html?v=19';
+  // тот же адрес, что в <link rel="preload"> страницы — иначе предзагрузка пропадает зря
+  let fileUrl = '/Layout/sidebar.html?v=20';
 
   fetch(fileUrl)
     .then(response => {
@@ -57,14 +56,10 @@ function sidebarHTML_normal() {
 }
 
 function footerHTML() {
-  // ${nesting} outputs "./" or "../" depending on current page depth.
-  // You can use it to refer to images etc.
-  // Example: <img src="${nesting}img/logo.png"> might output <img src="../img/logo.png">
 
   const currentYear = new Date().getFullYear();
 
   return `
-
 
       <!-- =============================================== -->
       <!-- FOOTER -->
@@ -110,20 +105,6 @@ function giveActiveClassToCurrentPage() {
     }
   });
 }
-
-function getNesting() {
-  const numberOfSlashes = window.location.pathname.split("/").length - 1;
-  if (numberOfSlashes == 1) return "./";
-  return "../".repeat(numberOfSlashes - 1);
-}
-
-
-
-
-
-
-
-
 
 /* Бесконечная лента 88x31 вместо <marquee>: содержимое дублируется,
    лента сдвигается ровно на половину своей ширины и начинается заново —

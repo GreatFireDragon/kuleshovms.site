@@ -1,11 +1,11 @@
-// Вставки между блоками: при каждой загрузке страницы случайно раскладываем
-// разные варианты из <template id="gap-pool"> по всем .gap-slot и оживляем их.
+// Вставки между блоками: варианты из <template id="gap-pool"> + window.GAP_EXTRA
+// раскладываются по .gap-slot по кругу (позиция в localStorage) и оживляются.
 (function () {
   var pool = document.getElementById("gap-pool");
   var slots = document.querySelectorAll(".gap-slot");
   if (!pool || !slots.length) return;
 
-  // дополнительные вставки из gap-lab2.js
+  // дополнительные вставки (gaps-variants.js)
   var EXTRA = {};
   (window.GAP_EXTRA || []).forEach(function (x) {
     var wrap = document.createElement("div");
@@ -123,96 +123,24 @@
     grow();
   }
 
-
-  // ---------- Футер (выбранный вариант; пока не выбран — ничего) ----------
-  var FOOTER_DEFAULT = window.FOOTER_DEFAULT || null;
+  // ---------- Футер: F-клавиши (window.FOOTER_DEFAULT) ----------
   function renderFooter(name) {
-    var footer = document.querySelector("footer");
-    if (!footer) return;
-    var old = footer.querySelector(".footer-extra");
-    if (old) old.remove();
     var f = (window.FOOTER_VARIANTS || {})[name];
-    if (!f) return;
+    var footer = document.querySelector("footer");
+    if (!f || !footer || footer.querySelector(".footer-extra")) return;
     var box = document.createElement("div");
     box.className = "footer-extra";
     box.innerHTML = f.html;
     footer.appendChild(box);
     if (f.init) f.init(box);
   }
-
-  // ---------- Панель обзора (только localhost) ----------
-  function render(slot, name) {
-    var src = pool.content.querySelector('.gap-v[data-v="' + name + '"]');
-    if (!src) return;
-    slot.innerHTML = "";
-    var v = src.cloneNode(true);
-    slot.appendChild(v);
-    init(v);
-  }
-
-  var isLocal = /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
+  // футер вставляет layout.js — ждём его появления (до 4 с)
   document.addEventListener("DOMContentLoaded", function () {
-    var tryFooter = function (n) {
-      if (document.querySelector("footer")) return renderFooter(localFooter() || FOOTER_DEFAULT);
+    (function tryFooter(n) {
+      if (document.querySelector("footer")) return renderFooter(window.FOOTER_DEFAULT);
       if (n < 40) setTimeout(function () { tryFooter(n + 1); }, 100);
-    };
-    tryFooter(0);
-    // панель обзора — только локально и только с ?review в адресе
-    if (!isLocal || !/[?&]review/.test(location.search)) return;
-    buildPanel();
+    })(0);
   });
-  function localFooter() { if (!isLocal) return null; try { return localStorage.getItem("gapReview.footer"); } catch (e) { return null; } }
-
-  function buildPanel() {
-    var panel = document.createElement("div");
-    panel.id = "gap-review";
-    var all = Array.prototype.slice.call(pool.content.querySelectorAll(".gap-v"));
-    panel.innerHTML = '<button class="hide" type="button">свернуть</button>' +
-      "<b>✅ Одобрено</b><div class=\"row ins ok-row\"></div>" +
-      "<b>🛠 Доработано и новое — на проверку</b><div class=\"row ins rev-row\"></div>" +
-      "<b>Футер</b><div class=\"row foot\"></div>";
-    var okRow = panel.querySelector(".ok-row"), revRow = panel.querySelector(".rev-row"), foot = panel.querySelector(".foot");
-    var STATUS = window.GAP_STATUS || { approved: [], review: [] };
-    var labels = {};
-    (window.GAP_EXTRA || []).forEach(function (x) { labels[x.v] = x.label; });
-    all.forEach(function (src, i) {
-      var b = document.createElement("button");
-      b.type = "button";
-      b.textContent = (i + 1) + " " + (labels[src.dataset.v] || src.dataset.v);
-      var isOk = STATUS.approved.indexOf(src.dataset.v) > -1;
-      b.classList.add(isOk ? "ok" : "new");
-      b.addEventListener("click", function () {
-        var slot = document.querySelector(".gap-slot");
-        render(slot, src.dataset.v);
-        panel.querySelectorAll(".ins button").forEach(function (x) { x.setAttribute("aria-pressed", "false"); });
-        b.setAttribute("aria-pressed", "true");
-        slot.scrollIntoView({ block: "center", behavior: "smooth" });
-      });
-      (isOk ? okRow : revRow).appendChild(b);
-    });
-    var fv = window.FOOTER_VARIANTS || {};
-    [["", "нет"]].concat(Object.keys(fv).map(function (k) { return [k, fv[k].label]; })).forEach(function (o) {
-      var b = document.createElement("button");
-      b.type = "button";
-      b.textContent = o[1];
-      b.setAttribute("aria-pressed", String((localFooter() || "") === o[0]));
-      b.addEventListener("click", function () {
-        try { localStorage.setItem("gapReview.footer", o[0]); } catch (e) {}
-        renderFooter(o[0]);
-        foot.querySelectorAll("button").forEach(function (x) { x.setAttribute("aria-pressed", "false"); });
-        b.setAttribute("aria-pressed", "true");
-        document.querySelector("footer").scrollIntoView({ block: "end", behavior: "smooth" });
-      });
-      foot.appendChild(b);
-    });
-    var hidden = false;
-    panel.querySelector(".hide").addEventListener("click", function () {
-      hidden = !hidden;
-      panel.querySelectorAll(".row, b").forEach(function (x) { x.style.display = hidden ? "none" : ""; });
-      this.textContent = hidden ? "панель" : "свернуть";
-    });
-    document.body.appendChild(panel);
-  }
 
   function typer(el, lines, speed) {
     var li = 0, ci = 0;
