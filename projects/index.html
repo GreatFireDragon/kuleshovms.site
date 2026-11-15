@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Проекты — Кулешов Михаил</title>
+    <meta
+      content="Внутренние сервисы, которые Михаил Кулешов разработал для IT-инфраструктуры дивизиона: SwitchControl, портал управляющих, KKT Control и другие."
+      name="description"
+    />
+    <link rel="canonical" href="https://kuleshovms.site/projects/" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/images/GFD Logo.svg" />
+    <link
+      rel="preload"
+      href="/Layout/sidebar.html?v=15"
+      as="fetch"
+      crossorigin="anonymous"
+      fetchpriority="high"
+    />
+    <link href="/style.css?v=15" rel="stylesheet" />
+    <link href="/fonts.css" rel="stylesheet" />
+    <script src="/layout.js?v=15" defer fetchpriority="high"></script>
+    <link href="/about/index.css?v=15" rel="stylesheet" />
+    <link href="/projects/projects.css?v=15" rel="stylesheet" />
+  </head>
+  <body>
+    <a href="#content" id="skip-to-content-link">Skip to content</a>
+
+    <div class="layout">
+      <main id="content">
+        <noscript>Please enable JavaScript to view this website!</noscript>
+
+        <section id="projects-intro">
+          <h1>🛠️ Сервисы, которые я сделал</h1>
+          <p>
+            Всё это работает в проде дивизиона Центральный DNS. Писал сам,
+            под реальную боль коллег: чтобы не лазить по коммутаторам руками,
+            не искать порты по полчаса и не чинить кассы по одной.
+          </p>
+          <p class="back"><a href="/">← назад к резюме</a></p>
+        </section>
+
+        <!-- Каждый проект: заголовок, суть, что умеет. Скриншоты — без внутренних IP и логинов! -->
+
+        <section class="project" id="switchcontrol">
+          <h2>SwitchControl</h2>
+          <p class="lead">Веб-панель для коммутаторов всех филиалов дивизиона.</p>
+          <ul>
+            <li>Находит, на каком порту висит устройство, по MAC или IP</li>
+            <li>Пресеты портов: камера, точка доступа, касса — в пару кликов</li>
+            <li>Инвентарь коммутаторов Cisco и SNR по всем магазинам</li>
+          </ul>
+          <!-- TODO: скриншот -->
+        </section>
+
+        <section class="project" id="branch-portal">
+          <h2>Портал управляющих</h2>
+          <p class="lead">Простой портал для управляющих магазинами.</p>
+          <ul>
+            <li>Состояние сети и оборудования своего филиала — без звонка в IT</li>
+            <li>Только чтение: ничего не сломать</li>
+          </ul>
+        </section>
+
+        <section class="project" id="kkt-control">
+          <h2>KKT Control</h2>
+          <p class="lead">Контроль парка касс и массовый ремонт связи с ОФД.</p>
+          <ul>
+            <li>Список всех касс дивизиона</li>
+            <li>Починка ОФД удалённо, одной кнопкой, а не по инструкции на каждой кассе</li>
+          </ul>
+        </section>
+
+        <section class="project" id="tvip-control">
+          <h2>TVIP Control</h2>
+          <p class="lead">Управление TV-приставками в магазинах.</p>
+          <ul>
+            <li>Настройка приставок и плейлистов централизованно</li>
+            <li>Вход по корпоративной учётке</li>
+          </ul>
+        </section>
+
+        <section class="project" id="web-awacs">
+          <h2>Web Awacs</h2>
+          <p class="lead">Сбор данных с камер видеонаблюдения.</p>
+          <ul>
+            <li>Видео с камер прямо в браузере</li>
+            <li>Мониторинг доступности камер</li>
+          </ul>
+        </section>
+
+        <section class="project" id="helpers">
+          <h2>Помощники для Zabbix и MobaXterm</h2>
+          <p class="lead">Мелочи, которые экономят часы.</p>
+          <ul>
+            <li>Добавление всего оборудования филиала в Zabbix по шаблонам</li>
+            <li>Сессии MobaXterm для всех филиалов собираются сами из таблицы</li>
+          </ul>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

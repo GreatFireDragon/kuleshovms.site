@@ -35,7 +35,7 @@
     />
     <link
       rel="preload"
-      href="/Layout/sidebar.html"
+      href="/Layout/sidebar.html?v=15"
       as="fetch"
       crossorigin="anonymous"
       fetchpriority="high"
@@ -45,12 +45,12 @@
       rel="stylesheet"
     /> -->
 
-    <link href="/style.css?v=13" rel="stylesheet" />
+    <link href="/style.css?v=15" rel="stylesheet" />
     <link href="/fonts.css" rel="stylesheet" />
-    <script src="/layout.js?v=13" defer fetchpriority="high"></script>
+    <script src="/layout.js?v=15" defer fetchpriority="high"></script>
 
     <!-- Additional files: -->
-    <link href="/about/index.css?v=13" rel="stylesheet" />
+    <link href="/about/index.css?v=15" rel="stylesheet" />
     <noscript><style>.lqip img { opacity: 1; }</style></noscript>
     <link
       rel="stylesheet"
@@ -510,38 +510,60 @@
               <h3>DNS · дивизион Центральный</h3>
               <span class="job-date">01.2026 – сейчас</span>
             </div>
-            <p><i>Системный / сетевой администратор</i></p>
+            <p><i>Инженер IT-инфраструктуры дивизиона</i></p>
 
             <div class="job-content">
               <p>
-                Держу на плаву IT двух сотен магазинов Москвы и области:
-                кассы, камеры, сеть, постаматы — всё, что может сломаться
-                в пятницу вечером. А чтобы чинить быстрее, пишу себе
-                инструменты, которыми теперь пользуется весь отдел.
+                На мне IT-инфраструктура центрального дивизиона DNS: сети,
+                серверы, кассы и видеонаблюдение в ~350 магазинах Москвы,
+                Московской и Тверской областей, на складах и в
+                распределительном центре. Чтобы такой масштаб не горел,
+                пишу собственные сервисы для всего дивизиона.
               </p>
 
               <div class="job-stats">
-                <div class="stat"><b>150+</b><span>заявок в месяц</span></div>
-                <div class="stat"><b>200+</b><span>магазинов</span></div>
-                <div class="stat"><b>6</b><span>своих сервисов в проде</span></div>
+                <div class="stat"><b>350+</b><span>магазинов</span></div>
+                <div class="stat"><b>3 + РЦ</b><span>склада и распред. центр</span></div>
+                <div class="stat"><b>2</b><span>области + Москва</span></div>
+              </div>
+
+              <figure class="division-map">
+                <img
+                  src="/images/work/division-map.svg"
+                  alt="Схема дивизиона: около 350 магазинов, склады и РЦ в Москве, Московской и Тверской областях"
+                  width="640"
+                  height="591"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption>Моя зона ответственности (схематично)</figcaption>
+              </figure>
+
+              <div class="my-services">
+                <b>🛠️ Свои сервисы в проде:</b>
+                <a href="/projects/#switchcontrol">SwitchControl</a>
+                <a href="/projects/#branch-portal">Портал управляющих</a>
+                <a href="/projects/#kkt-control">KKT Control</a>
+                <a href="/projects/#tvip-control">TVIP Control</a>
+                <a href="/projects/#web-awacs">Web Awacs</a>
+                <a href="/projects/#helpers">Zabbix + MobaXterm</a>
+                <a class="more" href="/projects/">подробнее →</a>
               </div>
 
               <details class="job-details">
                 <summary>Подробнее о задачах</summary>
                 <ul>
                   <li>
-                    🧾 <b>Кассы:</b> ККТ, ОФД, пинпады, «Честный знак».
-                    Ошибка 99 — это не лото, это опять COM-порт.
+                    🌐 <b>Сеть филиалов:</b> Cisco, SNR, MikroTik, SD-WAN, Wi-Fi —
+                    от открытия нового магазина до «почему всё легло в пятницу вечером».
                   </li>
                   <li>
-                    📹 <b>Камеры и сеть:</b> Cisco, MikroTik, SD-WAN, Wi-Fi.
-                    Нахожу, почему «глушилки» на самом деле точка доступа не в том порту.
+                    📹 <b>Видеонаблюдение и кассы:</b> камеры, PoE, face-detect,
+                    ККТ и «Честный знак». Ошибка 99 — это не лото, это опять COM-порт.
                   </li>
                   <li>
-                    🛠️ <b>Свои инструменты:</b> панель управления коммутаторами
-                    филиалов, портал для управляющих, контроль касс и
-                    TV-приставок. То, что раньше делали руками за полчаса,
-                    теперь — пара кликов.
+                    🤖 <b>Автоматизация:</b> всё, что делается руками больше двух
+                    раз, превращается в сервис. Список выше.
                   </li>
                 </ul>
               </details>
@@ -552,7 +574,7 @@
           <article class="job-card">
             <div class="job-header">
               <h3>Digital Strategy</h3>
-              <span class="job-date">02.2024 – 06.2025</span>
+              <span class="job-date">02.2024 – 08.2025</span>
             </div>
             <p><i>Технический специалист / SEO-аналитик</i></p>
 

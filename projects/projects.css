@@ -1,0 +1,28 @@
+/* Страница «Проекты» */
+#projects-intro h1 {
+  margin-top: 0;
+  font-family: var(--heading-font);
+}
+
+#projects-intro .back {
+  margin-bottom: 0;
+}
+
+.project h2 {
+  margin-top: 0;
+  font-family: var(--heading-font);
+}
+
+.project .lead {
+  font-style: italic;
+  color: var(--sidebar-text-color);
+}
+
+.project ul {
+  margin-bottom: 0;
+}
+
+.project:target {
+  outline: 3px solid var(--link-color);
+  outline-offset: 2px;
+}
