@@ -37,7 +37,8 @@
     // титры: весь текст крупно едет снизу вверх, как в конце фильма
     var crawl = document.createElement("div");
     crawl.className = "meme-crawl";
-    crawl.innerHTML = LINES.map(function (l) { return "<p>" + l + "</p>"; }).join("");
+    // один сплошной абзац во всю ширину, без переносов по строкам
+    crawl.innerHTML = "<p>" + LINES.join(" ") + "</p>";
     subs.appendChild(crawl);
     btn.addEventListener("click", function () {
       if (playing) return;

@@ -96,3 +96,21 @@
 .pz-sizes button { padding: 2px 8px; border: 1px solid #333; border-radius: 4px; background: #fff; font: 12px "Courier New", monospace; cursor: pointer; }
 .pz-sizes button.on { background: #333; color: #fff; }
 .gl-padazhi2 { flex-direction: column; align-items: center; }
+
+/* ===== стена видеонаблюдения в «Опыте» ===== */
+.cctv-frame { background: #050505; }
+.cctv-wall { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; height: 100%; padding: 3px; box-sizing: border-box; transform: scale(1.04); transition: transform 0.5s; }
+.task-frame:hover .cctv-wall { transform: scale(1); }
+.cctv-wall .cam { position: relative; overflow: hidden; background: radial-gradient(circle at 50% 60%, #3a4a3a, #121812); filter: grayscale(0.6) contrast(1.1); }
+.cctv-wall .noise { position: absolute; inset: -50%; background: repeating-radial-gradient(circle at 17% 32%, rgba(255,255,255,0.07) 0 1px, transparent 1px 3px); animation: cctv-noise 0.25s steps(3) infinite; pointer-events: none; }
+@keyframes cctv-noise { 33% { transform: translate(7px, -5px); } 66% { transform: translate(-6px, 4px); } }
+.cam-label { position: absolute; left: 4px; top: 3px; color: #e8ffe8; font: bold 9px "Courier New", monospace; text-shadow: 0 0 3px #000; z-index: 1; }
+.cctv-wall .person { position: absolute; bottom: 4px; font-size: 26px; animation: walk 7s linear infinite; }
+@keyframes walk { from { left: -30px; } to { left: 110%; } }
+.cctv-wall .box { position: absolute; left: 40%; bottom: 6px; font-size: 24px; }
+.cctv-wall .cat { position: absolute; bottom: 4px; font-size: 22px; animation: walk 11s linear infinite reverse; }
+.cam.lost { background: #1a1a1a; }
+.cam.lost .nosig { position: absolute; inset: 0; display: grid; place-items: center; color: #ff5a3c; font: bold 12px "Courier New", monospace; animation: led 0.8s steps(1) infinite; }
+.cctv-wall .rec { position: absolute; right: 8px; top: 5px; color: #ff3b30; font: bold 10px "Courier New", monospace; animation: led 1s steps(1) infinite; z-index: 2; }
+.cctv-wall .ts { position: absolute; right: 8px; bottom: 5px; color: #e8ffe8; font: 9px "Courier New", monospace; text-shadow: 0 0 3px #000; z-index: 2; }
+.task-frame.cctv-frame:hover { height: 190px; }
