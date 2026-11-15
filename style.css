@@ -695,3 +695,7 @@ header img.pixel-avatar {
 .ticker88.reverse .ticker88-track {
   animation-direction: reverse;
 }
+
+/* лента 88x31 вне экрана: стоит, пока картинки не подгрузились — серая плашка */
+.ticker88.off .ticker88-track { animation-play-state: paused !important; }
+.ticker88-track img:not([src]) { background: rgba(61, 56, 49, 0.18); }

@@ -3,7 +3,7 @@
   function pad(n) { return String(n).padStart(2, "0"); }
   function tick() {
     var d = new Date(), t = d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()) + " " + pad(d.getHours()) + ":" + pad(d.getMinutes()) + ":" + pad(d.getSeconds());
-    document.querySelectorAll(".cctv-wall .ts").forEach(function (el) { el.textContent = t; });
+    document.querySelectorAll(".cctv-wall .ts").forEach(function (el) { if ((window.GAP_VIS ? GAP_VIS(el) : true)) el.textContent = t; });
   }
   tick(); setInterval(tick, 1000);
 
@@ -14,6 +14,7 @@
   document.querySelectorAll(".cctv-wall").forEach(function (wall) {
     var cams = wall.querySelectorAll(".cam"), last = null, started = false, count = 0;
     function wake() {
+      if (!(window.GAP_VIS ? GAP_VIS(wall) : true)) return setTimeout(wake, 1000);
       var cam; do { cam = cams[Math.floor(Math.random() * cams.length)]; } while (cam === last && cams.length > 1);
       last = cam; count++;
       var key = cam.dataset.cam, pool = POOL[key] || [], scary = SCARY[key] && count > 3 && Math.random() < 0.15;
@@ -46,6 +47,7 @@
       while (list.children.length > 8) list.removeChild(list.firstChild);
     }
     (function next() {
+      if (!(window.GAP_VIS ? GAP_VIS(box) : true)) return setTimeout(next, 1000);
       if (n >= 120) {
         add("Сейчас посмотрю 👀", true); n = 0; badge.textContent = "0";
         return setTimeout(next, 2500);

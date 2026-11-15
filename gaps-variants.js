@@ -3,6 +3,20 @@
 // поздние блоки перекрывают одноимённые варианты/обработчики ранних. Ядро — gaps-core.js.
 
 
+// Анимации вставок крутятся только когда вставка на экране — иначе браузер
+// впустую жжёт процессор (Lighthouse видел из-за этого секунду «подвисания»).
+window.GAP_VIS = (function () {
+  var io = "IntersectionObserver" in window ? new IntersectionObserver(function (es) {
+    es.forEach(function (e) { e.target.__vis = e.isIntersecting; });
+  }, { rootMargin: "150px" }) : null;
+  return function (el) {
+    if (!io) return true;
+    if (!el.__visObs) { el.__visObs = 1; el.__vis = false; io.observe(el); }
+    return el.__vis;
+  };
+})();
+
+
 // ===== раунд 1: базовые вставки =====
 // ping, matrix, traceroute, ports, clippy, rj45, dvd → window.GAP_EXTRA
 (function () {
@@ -12,7 +26,7 @@
   function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
   function every(el, ms, fn) {
     // работает только пока элемент в документе
-    var id = setInterval(function () { if (!el.isConnected) return clearInterval(id); fn(); }, ms);
+    var id = setInterval(function () { if (!el.isConnected) return clearInterval(id); if (GAP_VIS(el)) fn(); }, ms);
     fn();
   }
 
@@ -92,8 +106,11 @@
     function (el) {
       var b = el.querySelector(".logo"), cnt = el.querySelector(".corner"), x = 10, y = 5, vx = 2, vy = 1, hits = 0;
       var colors = ["#ffb347", "#8dff9d", "#4fc3ff", "#ff7ab6", "#fff1c1"];
+      var W = 0, H = 0;
+      function measure() { W = el.clientWidth - b.offsetWidth; H = el.clientHeight - b.offsetHeight; }
+      measure(); if ("ResizeObserver" in window) new ResizeObserver(measure).observe(el);
       every(el, 30, function () {
-        var W = el.clientWidth - b.offsetWidth, H = el.clientHeight - b.offsetHeight, hx = false, hy = false;
+        var hx = false, hy = false;
         if (el.dataset.corner) { delete el.dataset.corner; x = W; y = H; vx = Math.abs(vx); vy = Math.abs(vy); }
         x += vx; y += vy;
         if (x <= 0 || x >= W) { vx = -vx; hx = true; x = Math.max(0, Math.min(W, x)); }
@@ -113,12 +130,12 @@
   function rnd(a, b) { return a + Math.random() * (b - a); }
   function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
   function every(el, ms, fn) {
-    var id = setInterval(function () { if (!el.isConnected) return clearInterval(id); fn(); }, ms);
+    var id = setInterval(function () { if (!el.isConnected) return clearInterval(id); if (GAP_VIS(el)) fn(); }, ms);
     fn();
   }
   function frame(el, fn) {
     // requestAnimationFrame, пока элемент в документе
-    (function loop(t) { if (!el.isConnected) return; fn(t); requestAnimationFrame(loop); })(performance.now());
+    (function loop(t) { if (!el.isConnected) return; if (GAP_VIS(el)) fn(t); requestAnimationFrame(loop); })(performance.now());
   }
 
   function put(v, label, html, init) {
@@ -185,8 +202,8 @@
   var X = window.GAP_EXTRA;
   function rnd(a, b) { return a + Math.random() * (b - a); }
   function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
-  function every(el, ms, fn) { var id = setInterval(function () { if (!el.isConnected) return clearInterval(id); fn(); }, ms); fn(); }
-  function frame(el, fn) { (function loop(t) { if (!el.isConnected) return; fn(t); requestAnimationFrame(loop); })(performance.now()); }
+  function every(el, ms, fn) { var id = setInterval(function () { if (!el.isConnected) return clearInterval(id); if (GAP_VIS(el)) fn(); }, ms); fn(); }
+  function frame(el, fn) { (function loop(t) { if (!el.isConnected) return; if (GAP_VIS(el)) fn(t); requestAnimationFrame(loop); })(performance.now()); }
   function put(v, label, html, init) {
     var item = { v: v, label: label, html: html, init: init };
     var idx = X.findIndex(function (x) { return x.v === v; });
@@ -481,6 +498,7 @@
     }
     (function loop() {
       if (!el.isConnected) return;
+      if (!GAP_VIS(el)) return requestAnimationFrame(loop);
       pts.forEach(function (p, i) {
         if (i === 0 || i === N - 1 || i === grab) return;
         var vx = (p.x - p.px) * 0.98, vy = (p.y - p.py) * 0.98;
@@ -654,7 +672,7 @@
     // стартуем с пары сломанных
     leds[1].classList.add("broken"); leds[3].classList.add("broken");
     setInterval(function () {
-      if (!el.isConnected || pause) return;
+      if (!el.isConnected || pause || !GAP_VIS(el)) return;
       var ok = Array.prototype.filter.call(leds, function (l) { return !l.classList.contains("broken"); });
       if (ok.length) ok[Math.floor(rnd(0, ok.length))].classList.add("broken");
     }, 2200);

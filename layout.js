@@ -121,8 +121,9 @@ function makeTickers() {
         items.forEach(function (el) {
           var clone = el.cloneNode(true);
           if (half === 1) clone.setAttribute('aria-hidden', 'true');
-          clone.querySelectorAll('img').forEach(function (i) { i.loading = 'eager'; });
-          if (clone.tagName === 'IMG') clone.loading = 'eager';
+          // картинки ленты качаем, только когда лента подъехала к экрану (см. ниже)
+          var imgs = clone.tagName === 'IMG' ? [clone] : Array.prototype.slice.call(clone.querySelectorAll('img'));
+          imgs.forEach(function (i) { i.dataset.src = i.getAttribute('src'); i.removeAttribute('src'); i.loading = 'eager'; });
           track.appendChild(clone);
         });
       }
@@ -130,5 +131,20 @@ function makeTickers() {
     track.style.animationDuration = (items.length * copies * (mq.classList.contains('tech-stack-icons') ? 1.5 : 2.5)) + 's';
     ticker.appendChild(track);
     mq.replaceWith(ticker);
+    watchTicker(ticker);
   });
+}
+
+// Лента вне экрана: картинки не грузим, анимацию ставим на паузу.
+function watchTicker(ticker) {
+  function load() {
+    ticker.querySelectorAll('img[data-src]').forEach(function (i) { i.src = i.dataset.src; i.removeAttribute('data-src'); });
+  }
+  if (!('IntersectionObserver' in window)) return load();
+  ticker.classList.add('off');
+  new IntersectionObserver(function (es) {
+    var on = es[0].isIntersecting;
+    ticker.classList.toggle('off', !on);
+    if (on) load();
+  }, { rootMargin: '300px 0px' }).observe(ticker);
 }
